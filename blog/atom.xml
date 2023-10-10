@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.y.ntnl.com/blog</id>
+    <title>Yuan Blog</title>
+    <updated>2023-10-11T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.y.ntnl.com/blog"/>
+    <subtitle>Yuan Blog</subtitle>
+    <icon>https://docs.y.ntnl.com/img/yuan.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[First Blog Post]]></title>
+        <id>https://docs.y.ntnl.com/blog/first-blog-post</id>
+        <link href="https://docs.y.ntnl.com/blog/first-blog-post"/>
+        <updated>2023-10-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
+        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <author>
+            <name>Zheng Chen</name>
+            <uri>https://github.com/zccz14</uri>
+        </author>
+        <author>
+            <name>Siyuan Wang</name>
+            <uri>https://github.com/Thrimbda</uri>
+        </author>
+        <category label="yuan" term="yuan"/>
+    </entry>
+</feed>
