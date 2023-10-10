@@ -12,8 +12,8 @@
         <id>https://docs.y.ntnl.com/blog/first-blog-post</id>
         <link href="https://docs.y.ntnl.com/blog/first-blog-post"/>
         <updated>2023-10-11T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <summary type="html"><![CDATA[Welcome.]]></summary>
+        <content type="html"><![CDATA[<p>Welcome.</p>]]></content>
         <author>
             <name>Zheng Chen</name>
             <uri>https://github.com/zccz14</uri>

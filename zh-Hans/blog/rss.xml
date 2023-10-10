@@ -13,8 +13,8 @@
             <link>https://docs.y.ntnl.com/zh-Hans/blog/first-blog-post</link>
             <guid>https://docs.y.ntnl.com/zh-Hans/blog/first-blog-post</guid>
             <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
-            <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>
+            <description><![CDATA[Welcome.]]></description>
+            <content:encoded><![CDATA[<p>Welcome.</p>]]></content:encoded>
             <category>yuan</category>
         </item>
     </channel>
