@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_yuants_docs=self.webpackChunk_yuants_docs||[]).push([[535],{5641:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"First Blog Post","permalink":"/zh-Hans/blog/first-blog-post"}]}')}}]);
