@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_yuants_docs=self.webpackChunk_yuants_docs||[]).push([[492],{4269:s=>{s.exports=JSON.parse('{"label":"Tech","permalink":"/zh-Hans/blog/tags/tech","allTagsPath":"/zh-Hans/blog/tags","count":1}')}}]);
