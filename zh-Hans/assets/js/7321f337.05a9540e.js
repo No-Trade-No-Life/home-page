@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_yuants_docs=self.webpackChunk_yuants_docs||[]).push([[2315],{4986:a=>{a.exports=JSON.parse('[{"label":"Yuan","permalink":"/zh-Hans/blog/tags/yuan","count":1},{"label":"Tech","permalink":"/zh-Hans/blog/tags/tech","count":1}]')}}]);

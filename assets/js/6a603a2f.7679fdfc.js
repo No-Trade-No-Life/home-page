@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_yuants_docs=self.webpackChunk_yuants_docs||[]).push([[6300],{5519:s=>{s.exports=JSON.parse('{"label":"Yuan","permalink":"/blog/tags/yuan","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

@@ -4,10 +4,47 @@
         <title>Yuan - Quantitative Strategy Platform Based on ChatGPT Blog</title>
         <link>https://docs.y.ntnl.com/blog</link>
         <description>Yuan - Quantitative Strategy Platform Based on ChatGPT Blog</description>
-        <lastBuildDate>Fri, 17 Nov 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 17 Apr 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Vision of No Trade No Life]]></title>
+            <link>https://docs.y.ntnl.com/blog/vision-of-no-trade-no-life</link>
+            <guid>https://docs.y.ntnl.com/blog/vision-of-no-trade-no-life</guid>
+            <pubDate>Wed, 17 Apr 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Everyone can rely on trading and easily enjoy the fruits of world economic development.]]></description>
+            <content:encoded><![CDATA[<p><strong>Everyone can rely on trading and easily enjoy the fruits of world economic development</strong>.</p>
+<p>The ultimate goal of economic development is to improve people's living standards.
+Relying on trading and enjoying economic development is to improve your life. This is the original meaning of No Trade No Life.</p>
+<p>In order to avoid over-expanding the topic and causing controversy, we first exclude several topics:</p>
+<ol>
+<li>We do not consider how to solve the problem of the gap between rich and poor. This is a political issue and a subject that government social managers need to consider;</li>
+<li>We do not consider how to directly promote economic development. This is a scientific issue and a topic that talents from all walks of life need to consider;</li>
+</ol>
+<p>We look at each investor's perspective, think about how to manage their wealth in a scientific and efficient manner, and help investors overcome the difficulties encountered in the investment process.</p>
+<p>We want to clarify the difficulty of investing and provide targeted solutions so that technology can enhance users' personal abilities and help users perform better investment operations.</p>
+<p>So, what exactly is the difficulty with investing?</p>
+<ol>
+<li>The market is non-stop and investment is too busy (the contradiction between excessive information and inefficient processing capabilities);</li>
+<li>Diverse needs and too few options (the contradiction between diversified investment needs and a small supply of investment products);</li>
+<li>The ideas are beautiful but the knowledge is too little (the contradiction between investors’ expectations and investors’ abilities does not match);</li>
+<li>Taking things for granted and lack of awareness (Contradiction between investor’s sensibility and investor’s rationality)</li>
+</ol>
+<p>To this end, we have proposed targeted solutions to the above problems:</p>
+<ol>
+<li>Utilize a series of technologies including AI, cloud computing, etc. to realize automatic transactions, free up users’ time and energy, and liberate productivity.</li>
+<li>Users can choose from market standard investment products, combine them with compound investment products, build investment portfolios, and establish private equity funds, thereby greatly enriching investment products to meet the investment needs of themselves and their surrounding friends.</li>
+<li>Find lessons from history and experience from knowledge. Enrich the testing system and build an investment and trading knowledge base to help novices become professional investors step by step and help all investors manage their expectations.</li>
+<li>Through data visualization, boring data is transformed into a format that can directly stimulate users' perceptual thinking through vision, helping users get rid of the inertia of taken-for-granted thinking.</li>
+</ol>
+<p>If one day the vision of economic development is realized and people's living standards improve, it may be because:</p>
+<ol>
+<li>If investing is still important, then everyone has a good investment operating system. (I hope that will be our Yuan)</li>
+<li>If investment no longer matters, then communism has probably been achieved.</li>
+</ol>]]></content:encoded>
+            <category>Yuan</category>
+        </item>
         <item>
             <title><![CDATA[Do we really need Python for Quant?]]></title>
             <link>https://docs.y.ntnl.com/blog/do-we-really-need-python-for-quant</link>
