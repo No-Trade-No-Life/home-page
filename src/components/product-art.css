@@ -1,0 +1,320 @@
+.art-label {
+  position: absolute;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.message-sculpture {
+  position: relative;
+  width: 270px;
+  height: 200px;
+  margin: auto;
+  transform: rotate(-9deg);
+}
+.message-bubble {
+  border: 1px solid #b9a0ff44;
+  background: linear-gradient(120deg, #b9a0ff0e, #b9a0ff04);
+  box-shadow: 0 10px 30px #0003;
+  border-radius: 8px;
+  position: absolute;
+}
+.bubble-back {
+  width: 170px;
+  height: 60px;
+  left: 65px;
+  top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 24px;
+  transform: skewY(2deg);
+}
+.bubble-back i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b9a0ff66;
+}
+.bubble-front {
+  width: 241px;
+  height: 75px;
+  left: 4px;
+  top: 76px;
+  display: flex;
+  align-items: center;
+  padding: 17px;
+  gap: 15px;
+  background: linear-gradient(110deg, #292234, #16151b);
+}
+.mini-avatar {
+  border: 1px solid #b9a0ff55;
+  color: #b9a0ff;
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: #b9a0ff11;
+  border-radius: 50%;
+}
+.bubble-front b {
+  display: block;
+  height: 3px;
+  width: 80px;
+  background: #b9a0ff55;
+  margin: 10px 0;
+  border-radius: 2px;
+}
+.bubble-front b + b {
+  width: 55px;
+  background: #b9a0ff25;
+}
+.message-tick {
+  margin-left: auto;
+  align-self: flex-end;
+  font-size: 20px;
+}
+.message-signal {
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  right: 23px;
+  top: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 15px var(--accent);
+}
+.message-sculpture .art-label {
+  left: 0;
+  bottom: 0;
+  transform: rotate(9deg);
+}
+.triangle-sculpture {
+  width: 245px;
+  height: 190px;
+  margin: auto;
+  position: relative;
+  transform: perspective(700px) rotateY(-16deg) rotateZ(-5deg);
+}
+.triangle-sculpture svg {
+  position: absolute;
+  inset: 10px auto auto -17px;
+  width: 200px;
+  height: 177px;
+  fill: #c4f78002;
+  stroke: #c4f78036;
+  stroke-width: 1;
+  filter: drop-shadow(0 0 2px #c4f78012);
+}
+.triangle-sculpture svg:last-of-type {
+  stroke: #c4f780cc;
+  fill: #c4f78007;
+  stroke-width: 1.4;
+}
+.execution-badge {
+  position: absolute;
+  bottom: 1px;
+  left: 106px;
+  background: #141e10;
+  border: 1px solid #c4f78044;
+  border-radius: 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.execution-badge span {
+  width: 4px;
+  height: 4px;
+  background: var(--lime);
+  border-radius: 50%;
+}
+
+.model-sculpture {
+  position: relative;
+  perspective: 700px;
+  width: 250px;
+  height: 145px;
+  margin: auto;
+}
+.model-sculpture > i {
+  position: absolute;
+  top: -20px;
+  left: 35px;
+  height: 166px;
+  width: 166px;
+  border: 1px solid #89c8fa66;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #89c8fa03;
+}
+.model-core {
+  position: absolute;
+  top: 51px;
+  left: 115px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #89c8fa;
+  background: #89c8fa22;
+  border-radius: 50%;
+  box-shadow: 0 0 26px #89c8fa22;
+}
+.model-sculpture .art-label {
+  bottom: -22px;
+  left: 50%;
+  width: 300px;
+  max-width: calc(100vw - 56px);
+  text-align: center;
+  transform: translateX(-50%);
+}
+.context-sculpture {
+  position: relative;
+  width: 230px;
+  margin: auto;
+  height: 140px;
+  top: 30px;
+  left: -12px;
+}
+.context-sheet {
+  width: 155px;
+  height: 106px;
+  padding: 17px;
+  border: 1px solid #f1a7b734;
+  border-radius: 5px;
+  background: #161417;
+  position: absolute;
+  top: 13px;
+  left: 25px;
+  box-shadow: 0 10px 20px #0004;
+}
+.context-sheet span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0;
+  color: #f1a7b7;
+}
+.context-sheet b {
+  display: block;
+  width: 60%;
+  height: 2px;
+  background: #f1a7b726;
+  margin-top: 9px;
+}
+.context-sheet b:nth-of-type(2) {
+  width: 83%;
+}
+.context-sheet svg {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 19px;
+  height: 19px;
+  opacity: 0.7;
+}
+
+.coin-sculpture {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+.coin-sculpture > i {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 15px;
+  left: 9px;
+  width: 125px;
+  height: 125px;
+  border: 1px solid #e8cc8c80;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #48412a, #17180f);
+  box-shadow:
+    0 6px 0 #2b281b,
+    0 7px 0 #e8cc8c22;
+}
+.coin-sculpture span {
+  font-style: normal;
+  font-size: 40px;
+  font-weight: 700;
+  color: #e8cc8caa;
+  border: 1px solid #e8cc8c55;
+  border-radius: 50%;
+  height: 95px;
+  width: 95px;
+  text-align: center;
+  line-height: 95px;
+}
+.exchange-sculpture {
+  height: 130px;
+  width: 210px;
+  position: relative;
+  margin: 3px auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 14px;
+  transform: skewY(-9deg);
+}
+.exchange-sculpture i {
+  width: 13px;
+  background: linear-gradient(to top, #90d9c515, #90d9c558);
+  border: 1px solid #90d9c570;
+  max-height: 106px;
+  box-shadow: 5px 3px 0 #90d9c507;
+}
+.chart-axis {
+  position: absolute;
+  height: 1px;
+  background: #90d9c52b;
+  bottom: 6px;
+  left: -14px;
+  right: -4px;
+}
+.hit-sculpture {
+  height: 140px;
+  width: 235px;
+  position: relative;
+  margin: auto;
+}
+.target-ring {
+  width: 130px;
+  height: 130px;
+  border: 1px solid #f5a38339;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+.target-ring.inner {
+  width: 89px;
+  height: 89px;
+  top: 21px;
+  left: 71px;
+  border-style: dashed;
+}
+.target-cross {
+  height: 11px;
+  width: 11px;
+  border: 1px solid #f5a383;
+  border-radius: 50%;
+  position: absolute;
+  top: 59px;
+  left: 110px;
+  background: #f5a38318;
+  box-shadow: 0 0 25px #f5a38333;
+}
+.hit-sculpture svg {
+  position: absolute;
+  top: 10px;
+  width: 235px;
+  height: 110px;
+  fill: none;
+  stroke: #f5a383a0;
+  stroke-width: 1;
+}
