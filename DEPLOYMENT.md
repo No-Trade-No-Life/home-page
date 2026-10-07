@@ -48,7 +48,7 @@ For a complete return to the pre-migration static site:
 
 1. Keep the `www.ntnl.io` custom-domain binding and DNS unchanged.
 2. Create a branch at `backup/pre-ecosystem-2026-10-07` without rewriting `main`.
-3. Change the Pages source from `workflow` to `legacy`, pointing to that rollback branch at `/`.
+3. Permit that branch in the `github-pages` environment deployment policy, then change the Pages source from `workflow` to `legacy`, pointing to the rollback branch at `/`.
 4. Wait for its Pages build, then verify HTTPS, the apex redirect, and archived routes.
 
 To resume the new website, set Pages back to `workflow` and manually run `Release website` on `main`. Review any in-progress release before switching sources, so it does not conflict with rollback.

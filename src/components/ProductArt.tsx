@@ -71,6 +71,36 @@ export function ProductArt({ id }: { id: ProductId }) {
           ))}
         </div>
       )}
+      {id === "firma" && (
+        <div className="firmament-sculpture">
+          <span className="firma-art-title">SHARED DATA</span>
+          <svg viewBox="0 0 360 240" fill="none">
+            <path
+              className="firma-dome"
+              d="M30 175a150 140 0 0 1 300 0M65 175a115 105 0 0 1 230 0M105 175a75 70 0 0 1 150 0M20 175h320"
+            />
+            <path
+              className="firma-links"
+              d="M180 70 85 125 75 205M180 70 275 125 285 205M85 125 180 150 275 125M180 70v135"
+            />
+            {[
+              [180, 70],
+              [85, 125],
+              [275, 125],
+              [180, 150],
+            ].map(([cx, cy]) => (
+              <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="4" />
+            ))}
+            {[55, 160, 265].map((x) => (
+              <g key={x}>
+                <rect x={x} y="195" width="40" height="28" rx="4" />
+                <path d={`M${x + 10} 204h20M${x + 10} 212h13`} />
+              </g>
+            ))}
+          </svg>
+          <span className="firma-art-caption">READ · EXPORT · SYNC</span>
+        </div>
+      )}
       {id === "midas" && (
         <div className="coin-sculpture">
           {[0, 1, 2, 3].map((i) => (

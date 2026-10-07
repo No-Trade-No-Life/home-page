@@ -318,3 +318,47 @@
   stroke: #f5a383a0;
   stroke-width: 1;
 }
+
+.firmament-sculpture {
+  width: 360px;
+  max-width: 100%;
+  height: 286px;
+  position: relative;
+  margin: auto;
+  color: var(--accent);
+}
+.firmament-sculpture svg {
+  display: block;
+  width: 100%;
+  height: 240px;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+.firma-dome {
+  opacity: 0.3;
+}
+.firma-links {
+  opacity: 0.6;
+}
+.firmament-sculpture circle {
+  fill: currentColor;
+  stroke: none;
+}
+.firmament-sculpture rect {
+  fill: #172531;
+}
+.firma-art-title,
+.firma-art-caption {
+  display: block;
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+.firma-art-title {
+  color: #b9d9ec;
+}
+.firma-art-caption {
+  color: #a8c3d5;
+}
