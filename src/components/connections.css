@@ -67,6 +67,7 @@
   font-size: var(--text-card-title);
   line-height: 1.5;
   font-weight: 600;
+  text-wrap: balance;
 }
 .scenario-intro p,
 .shared-description,
@@ -404,7 +405,8 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
-  .scenario-connector {
+  .scenario-connector,
+  .fund-stage-index svg {
     rotate: 90deg;
   }
   .ai-resources {
