@@ -432,7 +432,7 @@ test("every rendered label is at least 14px, including artwork, menus, and dialo
           );
         expect(clipped).toEqual([]);
         const copySizes = await page
-          .locator(".card-bottom p")
+          .locator(".card-bottom p, .scenario-product-description")
           .evaluateAll((elements) =>
             elements.map((element) =>
               parseFloat(getComputedStyle(element).fontSize),

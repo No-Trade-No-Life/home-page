@@ -190,7 +190,7 @@
   flex-shrink: 0;
 }
 .scenario-product-description {
-  font-size: 18px;
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--muted);
 }
