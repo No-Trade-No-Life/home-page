@@ -10,6 +10,8 @@
 
 PRs must pass `pr-check` before squash merge. `Release website` runs checks again, packages the checked static artifact, and deploys it to the `github-pages` environment. Release jobs only run for `main`. Failed checks cannot publish.
 
+Browser tests use the preinstalled Chrome on the Ubuntu 24.04 runner, with its version recorded in the job log. This avoids making website releases depend on an extra Ubuntu apt-mirror update. The original CI attempt stalled at that mirror before any tests ran; no quality checks were bypassed.
+
 ## Migration baseline
 
 The previous static Yuan website is preserved at commit `de219679f579c62230d7d6ccd196b3ae7917124c` and tag `backup/pre-ecosystem-2026-10-07`. A complete Git bundle, static archive, and pre-migration Pages/repository settings were saved outside the public repository before migration.

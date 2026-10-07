@@ -20,7 +20,7 @@ npm run format:check
 npm run check
 ```
 
-`check` runs lint, the production build, and Playwright browser tests. Tests use installed Chrome locally; CI installs Playwright Chromium. Both desktop and mobile tests run against the production build on port 4174.
+`check` runs lint, the production build, and Playwright browser tests. Tests use installed Chrome locally and the preinstalled Chrome on GitHub's Ubuntu 24.04 runner. CI records the browser version without a separate operating-system dependency installation. Both desktop and mobile tests run against the production build on port 4174.
 
 Coverage includes all seven product dialogs and links, language persistence, focus restoration, filters, illustrative workflows, motion controls, deep links, responsive navigation, overflow, self-hosted resources, accessibility, production metadata, archived documentation paths, and the custom 404. The new website's rendered text has a strict **14px minimum**, audited in both languages from 320px to 1920px, including menus, artwork, and dialogs. Desktop body text is 20px and mobile/tablet body text is 18px.
 
