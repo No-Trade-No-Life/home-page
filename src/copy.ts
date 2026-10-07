@@ -10,10 +10,10 @@ export const zh = {
   "nav.skip": "跳到主要内容",
   "hero.eyebrow": "为智能而构建 · 为价值而连接",
   "hero.description":
-    "让智能成为行动，让连接创造价值。\n七个独立产品，一个持续进化的开放生态。",
+    "让智能成为行动，让连接创造价值。\n八个独立产品，组合不止一种。",
   "hero.cta": "探索产品宇宙",
   "hero.secondary": "了解我们的理念",
-  "hero.coordinate": "智能 × 协作 × 价值",
+  "hero.coordinate": "数据 × 智能 × 协作 × 价值",
   "hero.scroll": "向下探索",
   "hero.art": "缓慢旋转的银绿色环形粒子雕塑，象征产品之间的连接",
   "hero.pause": "暂停动态效果",
@@ -23,14 +23,11 @@ export const zh = {
   "products.title": "各自强大。",
   "products.title2": "彼此成就。",
   "products.description":
-    "从人与智能的协作，到资产与价值的流通。\n为每一层能力，打造专注的产品。",
+    "从智能协作，到基金投资。\n每个产品独立运行，也能参与不同的组合。",
   "products.all": "全部产品",
   "products.ai": "智能协作",
-  "products.value": "价值流通",
   "products.more": "了解产品",
   "products.open": "打开产品",
-  "products.layer.ai": "智能协作层",
-  "products.layer.value": "价值流通层",
   "products.count": "个产品",
   "products.detail": "产品介绍",
   "products.capabilities": "核心能力",
@@ -79,15 +76,15 @@ export const zh = {
   "midas.f1": "USDC / USDT 充提",
   "midas.f2": "美元账本与内部转账",
   "midas.f3": "授权支付与应用结算",
-  "exchange.role": "统一资产视野",
+  "exchange.role": "基金管理与资产审计",
   "exchange.title": "多个账户，一目了然。",
   "exchange.description":
-    "连接不同交易所与账户来源，统一观察资产、持仓和组合，让复杂更清晰。",
+    "将账户、持仓与净值汇入统一视图。创建和管理基金，让投资记录可以核对、审计与复盘。",
   "exchange.detail":
-    "1Exchange 将多交易所、远程来源与手动账户放进统一的资产视图。以一致的账户和持仓模型，组织组合账户、净值记录及 Fund 管理。",
+    "1Exchange 将交易所、远程来源与手动账户组织为统一的资产视图，支持组合账户、净值历史与 Fund 管理。在基金场景中，审计指对账户、持仓、成交及基金记录的核对与复盘。",
   "exchange.f1": "多来源账户与持仓聚合",
   "exchange.f2": "组合账户与净值记录",
-  "exchange.f3": "Fund 与资产管理",
+  "exchange.f3": "基金创建、管理与记录核对",
   "hit.role": "人在回路的交易执行",
   "hit.title": "你的判断，精准执行。",
   "hit.description":
@@ -98,36 +95,13 @@ export const zh = {
   "hit.f2": "交易所专用执行策略",
   "hit.f3": "人工控制与信号记录",
   "hit.risk": "实盘交易涉及资金风险。HIT 不生成信号，也不承诺任何收益。",
-  "connection.eyebrow": "02 / 协同之力",
-  "connection.title": "不止是产品。",
-  "connection.title2": "是彼此连接的可能。",
-  "connection.description":
-    "每个产品专注做好一件事。\n而连接，让一个想法走得更远。",
-  "connection.ai": "智能协作",
-  "connection.value": "交易执行",
-  "connection.ai.title": "从一次对话，到一次行动。",
-  "connection.ai.description":
-    "Linkit 连接人与任务，CTX 提供个人上下文，NormAI 提供智能入口，Cybion 连接工具与真实设备。",
-  "connection.value.title": "从一个判断，到真实的执行。",
-  "connection.value.description":
-    "1Exchange 组织资产视野，HIT 承接外部目标信号，Linkit 触达执行通知。Midas 为生态提供独立的支付与结算能力。",
-  "connection.note": "产品能力关系示意 · 非实时运行数据",
-  "connection.hint": "点击节点，探索产品",
-  "connection.label.people": "连接",
-  "connection.label.context": "上下文",
-  "connection.label.intelligence": "智能",
-  "connection.label.action": "行动",
-  "connection.label.assets": "资产",
-  "connection.label.signal": "执行",
-  "connection.label.message": "通知",
-  "connection.label.payment": "结算",
   "about.eyebrow": "03 / 我们的理念",
   "about.title": "价值，",
   "about.title2": "在交换中发生。",
   "about.description":
     "Trade 不只是交易。\n它是想法的碰撞、能力的协作，也是价值的流动。\n我们构建工具，让每一次连接都更有意义。",
   "about.p1.title": "专注，而不孤立",
-  "about.p1.body": "每个产品有清晰的边界，也有通向彼此的接口。",
+  "about.p1.body": "每个产品有清晰的职责，可以独立使用，也可以按目标重新组合。",
   "about.p2.title": "智能，始于人",
   "about.p2.body": "技术放大人的判断与行动，而不是替代人的价值。",
   "about.p3.title": "开放，才有可能",
@@ -144,6 +118,86 @@ export const zh = {
   "footer.risk":
     "本站为产品介绍，不构成投资建议。涉及支付或交易的服务，请在使用前了解相应规则与风险。",
   "footer.copyright": "No Trade No Life. 保持连接，持续构建。",
+  "products.fund": "基金投资",
+  "products.shared": "跨场景能力",
+  "products.views": "场景示例",
+  "products.viewNote": "按场景探索，不按场景划界。产品可以出现在多个视图中。",
+  "firma.role": "共享数据发布",
+  "firma.title": "一份数据，共同取用。",
+  "firma.description":
+    "共享是默认的，本地是按需取得的子集。以同一份数据清单，连接发布者与使用者。",
+  "firma.detail":
+    "Firma（Firmament）是生态中的 Single Truth Publisher（单一真相发布方）。采集与调度由外部发布者负责，Firma 专注保管和分发数据：生态认证内默认开放读取，以署名和审计为写入治理原则。导出与目录同步共用清单，让用户按需取得可校验的本地子集。",
+  "firma.f1": "冷热数据与统一文件清单",
+  "firma.f2": "文件导出与授权目录增量同步",
+  "firma.f3": "SHA-256 校验与本地订阅子集",
+  "firma.availability":
+    "外部发布接口仍在规划中。冷库归档由管理员配置和触发；目录同步需要兼容浏览器及用户授权。",
+  "connection.eyebrow": "02 / 场景与组合",
+  "connection.title": "场景，是起点。",
+  "connection.title2": "组合，没有定式。",
+  "connection.description":
+    "八个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
+  "connection.open": "开放组合",
+  "connection.ai": "智能协作",
+  "connection.fund": "基金投资",
+  "connection.open.title": "独立的能力，开放的连接。",
+  "connection.open.description":
+    "从你要完成的事情出发，选择数据、上下文、智能、执行、沟通和结算能力。产品没有唯一的搭配方式，也不被某个场景限定。",
+  "connection.open.caption": "八个独立产品 · 按目标自由组合",
+  "connection.ai.title": "先找到人，再让分身协作。",
+  "connection.ai.description":
+    "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 从 CTX 取用个人上下文，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
+  "connection.ai.resources": "Cybion 按任务连接上下文与智能供应",
+  "connection.ai.billing": "NormAI 通过 Midas 支付结算",
+  "connection.ai.linkit.label": "找到人",
+  "connection.ai.linkit.body": "发现彼此，建立联系，把协作带入对话。",
+  "connection.ai.cybion.label": "分身协作",
+  "connection.ai.cybion.body": "承载人的智能体分身，组织任务、工具与协作。",
+  "connection.ai.ctx.label": "个人上下文",
+  "connection.ai.ctx.body":
+    "由 Cybion 在授权范围内取用个人知识、经验与长期上下文。",
+  "connection.ai.normai.label": "智能供应",
+  "connection.ai.normai.body":
+    "为 Cybion 提供兼容的模型访问，并记录调用用量与费用。",
+  "connection.ai.midas.label": "支付结算",
+  "connection.ai.midas.body": "承接 NormAI 的美元计费结算，支付由用户授权。",
+  "connection.fund.title": "从募集资金，到基金运营。",
+  "connection.fund.description":
+    "Midas 承接募资收款，Firma 提供数据，Cybion 开展研究并形成生产策略，HIT 执行实盘交易；随后在 1Exchange 创建和管理基金，通过 Linkit 进行投资者沟通管理。",
+  "connection.fund.midas.label": "募资收款",
+  "connection.fund.midas.body":
+    "用支付与转账能力承接募集资金，并处理授权结算。",
+  "connection.fund.firma.label": "研究数据",
+  "connection.fund.firma.body":
+    "从共享数据清单读取、导出或同步研究所需的数据。",
+  "connection.fund.cybion.label": "形成生产策略",
+  "connection.fund.cybion.body":
+    "组织研究、调用模型与工具，形成经人工确认的生产策略。",
+  "connection.fund.hit.label": "实盘交易落地",
+  "connection.fund.hit.body":
+    "执行策略产生的外部目标信号，由用户控制实盘启停与参数。",
+  "connection.fund.exchange.label": "创建与管理基金",
+  "connection.fund.exchange.body":
+    "组织基金与账户，核对持仓、成交和净值记录，支持审计复盘。",
+  "connection.fund.linkit.label": "投资者沟通管理",
+  "connection.fund.linkit.body":
+    "连接投资者，围绕基金开展对话、通知与社群管理。",
+  "connection.fund.caution":
+    "这是基金投资的一种场景组合，不是自动打通的投资服务。研究判断、策略确认与交易风险由使用者管理；HIT 不生成信号，也不承诺收益。",
+  "connection.shared.eyebrow": "跨场景能力",
+  "connection.shared.title": "沟通与结算，贯穿不同场景。",
+  "connection.shared.description":
+    "Linkit 与 Midas 可以参与每一种组合，既是场景中的角色，也是跨场景的公共能力。",
+  "connection.shared.linkit": "连接人与人、协作与通知。",
+  "connection.shared.midas": "连接支付、转账与授权应用结算。",
+  "connection.more.title": "更多组合，由你定义。",
+  "connection.more.body":
+    "同一份数据可以进入研究，也可以成为协作素材；同一个分身可以参与不同任务。场景只是示例，新的组合会随着人的需求继续出现。",
+  "connection.hint": "点击产品节点，了解独立能力",
+  "connection.note": "能力组合示意 · 不代表接口已全部打通或实时运行状态",
+  "footer.products.more": "更多产品",
+  "firma.f4": "Parquet / S3 归档与冷文件回源",
 } as const;
 export type CopyKey = keyof typeof zh;
 export const en: Record<CopyKey, string> = {
@@ -157,10 +211,10 @@ export const en: Record<CopyKey, string> = {
   "nav.skip": "Skip to content",
   "hero.eyebrow": "BUILT FOR INTELLIGENCE. CONNECTED BY VALUE.",
   "hero.description":
-    "Turn intelligence into action. Turn connection into value.\nSeven independent products. One evolving, open ecosystem.",
+    "Turn intelligence into action. Turn connection into value.\nEight independent products. More than one way to connect.",
   "hero.cta": "Explore the ecosystem",
   "hero.secondary": "Our philosophy",
-  "hero.coordinate": "INTELLIGENCE × CONNECTION × VALUE",
+  "hero.coordinate": "DATA × INTELLIGENCE × CONNECTION × VALUE",
   "hero.scroll": "SCROLL TO EXPLORE",
   "hero.art":
     "A slowly rotating silver and green toroidal particle sculpture representing connected products",
@@ -171,14 +225,11 @@ export const en: Record<CopyKey, string> = {
   "products.title": "Powerful alone.",
   "products.title2": "Better together.",
   "products.description":
-    "From human–AI collaboration to the movement of value.\nPurpose-built products for every layer of possibility.",
+    "From intelligent collaboration to fund investing.\nIndependent products, open to different combinations.",
   "products.all": "All products",
-  "products.ai": "Intelligence",
-  "products.value": "Value",
+  "products.ai": "Intelligent collaboration",
   "products.more": "Discover product",
   "products.open": "Open product",
-  "products.layer.ai": "INTELLIGENCE LAYER",
-  "products.layer.value": "VALUE LAYER",
   "products.count": "products",
   "products.detail": "Product overview",
   "products.capabilities": "CAPABILITIES",
@@ -227,15 +278,15 @@ export const en: Record<CopyKey, string> = {
   "midas.f1": "USDC / USDT deposits and withdrawals",
   "midas.f2": "USD ledger and internal transfers",
   "midas.f3": "Authorized payments and settlement",
-  "exchange.role": "ONE ASSET PERSPECTIVE",
+  "exchange.role": "FUNDS & ASSET OVERSIGHT",
   "exchange.title": "Many accounts. One clear view.",
   "exchange.description":
-    "Connect exchanges and account sources. See assets, positions, and portfolios through one consistent perspective.",
+    "Bring accounts, positions, and equity history into one view. Create and manage funds, with records for reconciliation and review.",
   "exchange.detail":
-    "1Exchange brings exchanges, remote sources, and manual accounts into one asset view. Consistent account and position models support composite accounts, equity history, and fund management.",
+    "1Exchange organizes exchanges, remote sources, and manual accounts into one asset view, supporting composite accounts, equity history, and Fund management. Fund oversight here means reviewing accounts, positions, trades, and fund records.",
   "exchange.f1": "Multi-source accounts and positions",
   "exchange.f2": "Composite accounts and equity history",
-  "exchange.f3": "Fund and asset management",
+  "exchange.f3": "Fund creation, management, and record review",
   "hit.role": "HUMAN-IN-THE-LOOP TRADER",
   "hit.title": "Your judgment. Precise execution.",
   "hit.description":
@@ -247,29 +298,6 @@ export const en: Record<CopyKey, string> = {
   "hit.f3": "Human control and signal history",
   "hit.risk":
     "Live trading involves financial risk. HIT does not generate signals or guarantee returns.",
-  "connection.eyebrow": "02 / CONNECTED BY DESIGN",
-  "connection.title": "More than products.",
-  "connection.title2": "A world of connections.",
-  "connection.description":
-    "Each product does one thing with purpose.\nConnections take your ideas further.",
-  "connection.ai": "Intelligence workflow",
-  "connection.value": "Trading workflow",
-  "connection.ai.title": "From a conversation to an action.",
-  "connection.ai.description":
-    "Linkit connects people and tasks. CTX supplies personal context. NormAI provides intelligence, and Cybion connects tools with real devices.",
-  "connection.value.title": "From a decision to real execution.",
-  "connection.value.description":
-    "1Exchange organizes asset visibility. HIT accepts external target signals. Linkit delivers notifications. Midas independently provides payments and settlement across the ecosystem.",
-  "connection.note": "CAPABILITY MAP · NOT LIVE TELEMETRY",
-  "connection.hint": "Select a node to explore",
-  "connection.label.people": "CONNECT",
-  "connection.label.context": "CONTEXT",
-  "connection.label.intelligence": "THINK",
-  "connection.label.action": "ACT",
-  "connection.label.assets": "OBSERVE",
-  "connection.label.signal": "EXECUTE",
-  "connection.label.message": "NOTIFY",
-  "connection.label.payment": "SETTLE",
   "about.eyebrow": "03 / OUR PHILOSOPHY",
   "about.title": "Value happens",
   "about.title2": "in exchange.",
@@ -277,7 +305,7 @@ export const en: Record<CopyKey, string> = {
     "Trade is more than a transaction.\nIt is the exchange of ideas, the collaboration of capabilities, and the movement of value.\nWe build tools that make every connection count.",
   "about.p1.title": "Focused, not isolated",
   "about.p1.body":
-    "Clear boundaries for every product. Open interfaces between them.",
+    "Clear responsibilities for every product. Use each on its own, or combine them around your goals.",
   "about.p2.title": "Intelligence starts with people",
   "about.p2.body":
     "Technology amplifies human judgment and action—not human replacement.",
@@ -296,5 +324,95 @@ export const en: Record<CopyKey, string> = {
   "footer.risk":
     "This website introduces products and is not investment advice. Understand the applicable terms and risks before using payment or trading services.",
   "footer.copyright": "No Trade No Life. Stay connected. Keep building.",
+  "products.fund": "Fund investing",
+  "products.shared": "Shared capabilities",
+  "products.views": "EXAMPLE SCENARIOS",
+  "products.viewNote":
+    "Explore by scenario, not by boundary. Products can appear in more than one view.",
+  "firma.role": "SHARED DATA PUBLISHING",
+  "firma.title": "One dataset. Shared possibilities.",
+  "firma.description":
+    "Shared by default. Local by subscription. A common manifest connects data publishers with the people and applications that use their data.",
+  "firma.detail":
+    "Firma (Firmament) is the ecosystem’s Single Truth Publisher. External publishers handle collection and scheduling; Firma focuses on keeping and distributing data. Its model is open reading within ecosystem authentication, with attributed, auditable writes. Exports and folder sync share one manifest, so users can take a verifiable local subset.",
+  "firma.f1": "Hot and cold data in one file manifest",
+  "firma.f2": "File exports and authorized incremental folder sync",
+  "firma.f3": "SHA-256 checks and local subscription subsets",
+  "firma.availability":
+    "External publishing is still planned. Cold-storage archiving is configured and triggered by an administrator; folder sync requires a compatible browser and user permission.",
+  "connection.eyebrow": "02 / SCENARIOS & COMBINATIONS",
+  "connection.title": "A scenario is a starting point.",
+  "connection.title2": "Not a fixed formula.",
+  "connection.description":
+    "Eight products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
+  "connection.open": "Open combinations",
+  "connection.ai": "Intelligent collaboration",
+  "connection.fund": "Fund investing",
+  "connection.open.title": "Independent capabilities. Open connections.",
+  "connection.open.description":
+    "Start with your goal. Choose the data, context, intelligence, execution, communication, and settlement capabilities it needs. No product belongs to only one scenario or one arrangement.",
+  "connection.open.caption":
+    "EIGHT INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
+  "connection.ai.title": "Find the people. Let their agents collaborate.",
+  "connection.ai.description":
+    "Find people through Linkit and collaborate through their Cybion agents. Cybion draws on personal context in CTX and model access through NormAI. NormAI settles payments through Midas.",
+  "connection.ai.resources":
+    "Cybion connects context and intelligence as the task requires",
+  "connection.ai.billing": "NormAI settles payments through Midas",
+  "connection.ai.linkit.label": "FIND PEOPLE",
+  "connection.ai.linkit.body":
+    "Discover people, make contact, and bring collaboration into a conversation.",
+  "connection.ai.cybion.label": "AGENT COLLABORATION",
+  "connection.ai.cybion.body":
+    "Host people’s agents and organize their tasks, tools, and collaboration.",
+  "connection.ai.ctx.label": "PERSONAL CONTEXT",
+  "connection.ai.ctx.body":
+    "Cybion draws on personal knowledge, experience, and long-term context within granted access.",
+  "connection.ai.normai.label": "INTELLIGENCE SUPPLY",
+  "connection.ai.normai.body":
+    "Provide compatible model access to Cybion, with per-request usage and cost records.",
+  "connection.ai.midas.label": "PAYMENT SETTLEMENT",
+  "connection.ai.midas.body":
+    "Settle NormAI’s USD billing through payments authorized by the user.",
+  "connection.fund.title": "From collecting capital to operating a fund.",
+  "connection.fund.description":
+    "Midas handles capital collection, Firma provides data, and Cybion supports research into production strategies. HIT executes live trades; create and manage the fund in 1Exchange, then coordinate investor communication through Linkit.",
+  "connection.fund.midas.label": "COLLECT CAPITAL",
+  "connection.fund.midas.body":
+    "Use payment and transfer capabilities to receive capital and handle authorized settlement.",
+  "connection.fund.firma.label": "RESEARCH DATA",
+  "connection.fund.firma.body":
+    "Read, export, or sync the research data you need from a shared manifest.",
+  "connection.fund.cybion.label": "PRODUCTION STRATEGY",
+  "connection.fund.cybion.body":
+    "Organize research and use models and tools to develop strategies for human approval.",
+  "connection.fund.hit.label": "LIVE EXECUTION",
+  "connection.fund.hit.body":
+    "Execute the strategy’s external target signals, with live operation and parameters under user control.",
+  "connection.fund.exchange.label": "CREATE & MANAGE FUNDS",
+  "connection.fund.exchange.body":
+    "Organize funds and accounts; reconcile positions, trades, and equity records for review.",
+  "connection.fund.linkit.label": "INVESTOR COMMUNICATION",
+  "connection.fund.linkit.body":
+    "Connect investors through conversations, notifications, and community management.",
+  "connection.fund.caution":
+    "An example combination, not an automatically integrated investment service. Users remain responsible for research decisions, strategy approval, and trading risk. HIT does not generate signals or guarantee returns.",
+  "connection.shared.eyebrow": "ACROSS SCENARIOS",
+  "connection.shared.title":
+    "Communication and settlement belong in every scenario.",
+  "connection.shared.description":
+    "Linkit and Midas can participate in any combination—as roles within a scenario and as capabilities shared across scenarios.",
+  "connection.shared.linkit":
+    "Connect people, collaboration, and notifications.",
+  "connection.shared.midas":
+    "Connect payments, transfers, and authorized application settlement.",
+  "connection.more.title": "The next combination is yours.",
+  "connection.more.body":
+    "The same data can support research or become material for collaboration. The same agent can join different tasks. These scenarios are examples; new combinations will emerge with people’s needs.",
+  "connection.hint": "Select a product to explore its capabilities",
+  "connection.note":
+    "ILLUSTRATIVE CAPABILITIES · NOT A CLAIM OF COMPLETE INTEGRATION OR LIVE STATUS",
+  "footer.products.more": "MORE PRODUCTS",
+  "firma.f4": "Parquet / S3 archiving and on-demand cold-file retrieval",
 };
 export const dictionaries = { zh, en };

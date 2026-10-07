@@ -1,52 +1,65 @@
-# Design and implementation notes
+# NTNL website design
 
-## Direction
+## Visual direction
 
-Deep graphite, warm off-white, and acid-lime highlights. Strong editorial typography and a procedural, dimensional ring make connection tangible. Seven floating nodes provide direct product exploration. The existing □ Linkit / △ Cybion / ○ NormAI / ✕ CTX symbol system is retained. Supporting products use simple provisional geometric marks.
+Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / ✕ CTX identities remain, and Firma uses its project's dome-and-stars mark. Original CSS/SVG artwork stays independent of an image service.
 
-Two capability layers give the seven-product portfolio a readable structure:
+## Product model: overlapping views
 
-- Intelligence and collaboration: Linkit, Cybion, NormAI, CTX.
-- Value infrastructure: Midas, 1Exchange, HIT.
+The eight products are Linkit, Cybion, NormAI, CTX, Firma (Firmament), Midas, 1Exchange, and HIT. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
 
-The landing page is a public brand site, not a trading terminal. No invented operating metrics, user counts, uptime claims, balances, or financial returns. The capability map is not presented as an already-connected production transaction pipeline. Midas settlement is independent of the trading execution sequence.
+- **Intelligent collaboration / 智能协作:** Linkit, Cybion, CTX, NormAI, Midas.
+- **Fund investing / 基金投资:** Midas, Firma, Cybion, HIT, 1Exchange, Linkit.
+- **Shared capabilities / 跨场景能力:** Linkit and Midas.
 
-## Interaction and accessibility
+Counts are derived from the product data. Linkit, Cybion, and Midas intentionally appear in more than one scenario. No new product is invented for a research activity.
 
-- Semantic navigation and section headings, skip link, visible keyboard focus.
-- Radix menus and dialog implement focus trapping, Escape, and focus return.
-- All seven products have original artwork, bilingual descriptions, capabilities, and actual destination links.
-- The product filter and workflow picker are explicit pressed-state buttons.
-- Mobile layouts tested from 360px upward; the capability map becomes vertical.
-- The decorative Canvas has a text alternative and an accessible pause control.
-- Reduced motion is supported, with motion work stopped offscreen and in background tabs.
-- HTTP-request-free landing experience after static resources load; no third-party tracking.
+## Scenario presentation
+
+The default **Open combinations** view shows all eight products in an unordered, nondirectional network. The two named scenarios are illustrative compositions, not the only possible arrangements or a claim of complete technical integration.
+
+### Intelligent collaboration
+
+Find people with Linkit, then collaborate through their Cybion agents. Cybion draws personal context from CTX and obtains model access from NormAI; NormAI settles payments through Midas. The display branches at Cybion: CTX is not shown as a sequential caller of NormAI. The NormAI → Midas relationship is grouped explicitly.
+
+### Fund investing
+
+The user-specified example has six roles, in this order:
+
+1. Midas — receive capital using payments/transfers and authorized settlement.
+2. Firma — obtain research data from shared datasets.
+3. Cybion — conduct research and form production strategies for human approval.
+4. HIT — execute external strategy signals under user control.
+5. 1Exchange — create/manage funds, reconcile accounts and investment records.
+6. Linkit — investor communication and community management.
+
+Numbered cards keep the sequence readable on desktop and mobile. This is not a ready-made automated investment service. HIT does not produce signals or promise returns. 1Exchange's oversight copy refers to reviewing account, position, trade, and fund records, not third-party assurance.
+
+### Cross-scenario roles
+
+Linkit and Midas remain visible in a separate shared-capabilities area in every view. Appearing as a stage in one example does not limit their other roles. A closing statement invites further combinations as needs evolve. All views distinguish illustrative capabilities from live telemetry and completed integrations.
+
+## Firma positioning and scope
+
+The public display name is Firma; details identify the full name, Firmament. Positioning follows `No-Trade-No-Life/Firmament` README at `a9493904ab281b23836e3d1e2e2b5aa8e0cb9752`: Single Truth Publisher, shared by default within ecosystem authentication, local subscriptions as subsets, and collection handled by external publishers.
+
+The product dialog distinguishes available data reading/export/sync and administrator-triggered Parquet/S3 archiving with on-demand cold-file retrieval from the still-planned external publishing interface. The cold-storage release was rechecked before publication and its successful release confirmed. No production data feeds, automatic background sync, or completed cross-product integration are invented. The website itself does not call application APIs or initiate login, sync, payment, fundraising, or trades.
+
+## Readability and interaction
+
+- No rendered text below **14px**, including artwork, menus, notes, footer, and dialogs.
+- Desktop body **20px**, mobile/tablet **18px**, card statements **28px**, product names **30–32px**, navigation/actions **18px**.
+- Spacious two-column product cards; Firma and HIT use wide feature rows; one column below 900px.
+- Product dialogs restore focus to their opener and scroll safely on mobile.
+- Scenario buttons expose their selected state. Every product node opens the same accessible product dialog.
+- The torus respects reduced motion and pause controls and stops offscreen or in a hidden tab.
+
+Regression tests cover both languages, all scenario views, overlapping filters, the exact user-specified relationships, all eight product dialogs/links, 320–1920px typography/overflow, hero-node collisions, and card/artwork separation.
 
 ## Complexity review
 
-Necessary state paths: language choice, product category, selected product, selected capability map, and paused motion. Dialog/menu focus mechanics are delegated to Radix. Product content is data-driven. Exceptional handling is limited to blocked browser storage, which falls back to in-session language choice. Canvas lifecycle conditions only manage rendering resource use.
+New runtime choices are limited to overlapping product filters, three explicitly selected scenario views, and data-driven optional product notes. Each represents a visible requirement and is covered by tests. The old exclusive two-layer taxonomy and animated pipeline implementation were removed. No runtime API integration, speculative fallback, or new compatibility path was introduced. The existing static documentation archive remains governed by `DEPLOYMENT.md`.
 
-No legacy compatibility layer, backend, accounts, simulated API, authentication, router, remote data fetching, financial action, or speculative future abstraction was added.
+## Production
 
-## Delivery boundary
-
-This is a local preview with a reproducible static production build and deployment templates. The live domain, GitHub repository, DNS and production services are intentionally unchanged pending design and migration approval.
-
-## Readability revision
-
-Typography follows the user's hard minimum: **no rendered text below 14px**, including small labels, illustration annotations, menus, footer, and dialogs. Shared CSS tokens use an explicit 14px floor rather than shrinking small-screen text.
-
-- Desktop body: 20px, 1.9 line height (38px).
-- Mobile/tablet body: 18px, 1.9 line height (34.2px).
-- Product names: 30–32px; product statements: 28px.
-- Navigation, actions, and filters: 18px; supporting text: 14px minimum.
-- Secondary copy is brighter; titles do not carry the entire reading experience.
-- Product cards use a spacious two-column layout, a full-width HIT feature, and a single-column layout below 900px. Artwork is in normal document flow so growing copy never hides behind it.
-- Product dialogs are 720px wide on desktop and scroll safely on mobile.
-- A browser regression test checks the computed font size of every rendered text element in both languages, from 320px to 1920px, including every product dialog. A second test checks card text bounds and artwork collisions.
-
-This revision changes visual layout and adds card anchors; it does not add application state, network calls, compatibility paths, or backend behavior.
-
-## Production delivery
-
-The approved design is published through the `No-Trade-No-Life/home-page` repository to `www.ntnl.io`. Canonical and sharing URLs use that hostname. Existing documentation is retained as an isolated static archive; it is not restyled or imported into the new frontend. The new 404 follows the graphite/lime palette with text above the 14px floor. See `DEPLOYMENT.md` for ownership and rollback.
+Canonical hostname: `www.ntnl.io`. Deployment remains the checked GitHub Pages workflow in `No-Trade-No-Life/home-page`; archive URLs, DNS, and product subdomains remain unchanged.

@@ -23,6 +23,14 @@ test("production metadata uses the www hostname", async ({ page, request }) => {
   expect(await (await request.get("/sitemap.xml")).text()).toContain(
     "<loc>https://www.ntnl.io/</loc>",
   );
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    /Firma/,
+  );
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+    "content",
+    /Eight independent products/,
+  );
   const social = await request.get("/social-card.png");
   expect(social.ok()).toBe(true);
   expect(social.headers()["content-type"]).toContain("image/png");
@@ -30,16 +38,15 @@ test("production metadata uses the www hostname", async ({ page, request }) => {
 
 test("archived English and Chinese documentation retains local assets without tracking", async ({
   page,
+  baseURL,
 }) => {
+  const origin = new URL(baseURL!).origin;
   const errors: string[] = [];
   const missing: string[] = [];
   const trackers: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("response", (response) => {
-    if (
-      response.url().startsWith("http://127.0.0.1:4174") &&
-      response.status() >= 400
-    )
+    if (new URL(response.url()).origin === origin && response.status() >= 400)
       missing.push(response.url());
   });
   page.on("request", (request) => {
@@ -47,7 +54,11 @@ test("archived English and Chinese documentation retains local assets without tr
       trackers.push(request.url());
   });
   // Archive math styles are historical external resources, not a CI dependency.
-  await page.route("https://**", (route) => route.abort());
+  await page.route("https://**", (route) =>
+    new URL(route.request().url()).origin === origin
+      ? route.continue()
+      : route.abort(),
+  );
   for (const path of ["/docs/intro/", "/zh-Hans/docs/intro/"]) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
@@ -86,5 +97,5 @@ test("custom 404 offers a readable route back to the homepage", async ({
     ),
   ).toBe(true);
   await page.getByRole("link", { name: "返回官网 / Back to NTNL" }).click();
-  await expect(page.locator(".product-card")).toHaveCount(7);
+  await expect(page.locator(".product-card")).toHaveCount(8);
 });

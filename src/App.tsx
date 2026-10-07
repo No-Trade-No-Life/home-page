@@ -12,21 +12,21 @@ import {
   Menu,
   Pause,
   Play,
-  Plus,
   X,
 } from "lucide-react";
 import { dictionaries, type CopyKey, type Locale } from "./copy";
 import {
   products,
-  productById,
-  type Category,
+  productViewKeys,
+  productsForView,
+  type ProductFilter,
   type Product,
-  type ProductId,
 } from "./products";
 import { Button } from "./components/ui/button";
 import { BrandMark, ProductMark } from "./components/Marks";
 import { Orbit } from "./components/Orbit";
 import { ProductArt } from "./components/ProductArt";
+import { Connections } from "./components/Connections";
 import "./App.css";
 
 const currentYear = new Date().getFullYear();
@@ -37,24 +37,12 @@ const navigation = [
   ["connections", "nav.connection"],
   ["philosophy", "nav.about"],
 ] as const;
-const filters: { id: Category; key: CopyKey; count: string }[] = [
-  { id: "all", key: "products.all", count: "07" },
-  { id: "ai", key: "products.ai", count: "04" },
-  { id: "value", key: "products.value", count: "03" },
+const filters: { id: ProductFilter; key: CopyKey }[] = [
+  { id: "all", key: "products.all" },
+  { id: "ai", key: "products.ai" },
+  { id: "fund", key: "products.fund" },
+  { id: "shared", key: "products.shared" },
 ];
-const flows: Record<"ai" | "value", { id: ProductId; label: CopyKey }[]> = {
-  ai: [
-    { id: "linkit", label: "connection.label.people" },
-    { id: "ctx", label: "connection.label.context" },
-    { id: "normai", label: "connection.label.intelligence" },
-    { id: "cybion", label: "connection.label.action" },
-  ],
-  value: [
-    { id: "exchange", label: "connection.label.assets" },
-    { id: "hit", label: "connection.label.signal" },
-    { id: "linkit", label: "connection.label.message" },
-  ],
-};
 function readLocale(): Locale {
   // RECOVERY: blocked localStorage must not make this public site unusable.
   try {
@@ -123,6 +111,7 @@ function ProductDialog({
         <Dialog.Overlay className="dialog-overlay" />
         <Dialog.Content
           className="product-dialog"
+          data-product={product?.id}
           style={{ "--accent": product?.accent } as CSSProperties}
           onCloseAutoFocus={(event) => {
             event.preventDefault();
@@ -133,11 +122,12 @@ function ProductDialog({
           {product && (
             <>
               <div className="dialog-eyebrow mono">
-                {t(
-                  product.category === "ai"
-                    ? "products.layer.ai"
-                    : "products.layer.value",
-                )}{" "}
+                <span>{t("products.views")}</span>
+                <span>
+                  {product.views
+                    .map((view) => t(productViewKeys[view]))
+                    .join(" · ")}
+                </span>
                 <span>/ {t("products.detail")}</span>
               </div>
               <div className="dialog-heading">
@@ -157,9 +147,7 @@ function ProductDialog({
                   </div>
                 ))}
               </div>
-              {product.id === "hit" && (
-                <p className="risk-note">{t("hit.risk")}</p>
-              )}
+              {product.note && <p className="risk-note">{t(product.note)}</p>}
               <Button asChild>
                 <a
                   href={`https://${product.domain}`}
@@ -190,8 +178,7 @@ function ProductDialog({
 }
 function App() {
   const [locale, setLocale] = useState<Locale>(readLocale);
-  const [filter, setFilter] = useState<Category>("all");
-  const [flow, setFlow] = useState<"ai" | "value">("ai");
+  const [filter, setFilter] = useState<ProductFilter>("all");
   const lastTriggerRef = useRef<HTMLElement | null>(null);
   function selectProduct(product: Product) {
     lastTriggerRef.current = document.activeElement as HTMLElement;
@@ -241,9 +228,7 @@ function App() {
     });
     return () => cancelAnimationFrame(frame);
   }, []);
-  const displayed = products.filter(
-    (product) => filter === "all" || product.category === filter,
-  );
+  const displayed = productsForView(filter);
   return (
     <>
       <a className="skip-link" href="#main">
@@ -397,10 +382,10 @@ function App() {
                 ELEMENT
               </span>
             </div>
-            {products.map((product, index) => (
+            {products.map((product) => (
               <button
                 key={product.id}
-                className={`orbit-node node-${index}`}
+                className={`orbit-node node-${product.id}`}
                 style={{ "--accent": product.accent } as CSSProperties}
                 onClick={() => selectProduct(product)}
                 aria-label={`${t("products.more")} ${product.name}`}
@@ -473,7 +458,9 @@ function App() {
                   aria-pressed={filter === item.id}
                 >
                   {t(item.key)}
-                  <span className="mono">{item.count}</span>
+                  <span className="mono">
+                    {String(productsForView(item.id).length).padStart(2, "0")}
+                  </span>
                 </button>
               ))}
             </div>
@@ -482,6 +469,7 @@ function App() {
               <ChevronDown size={13} />
             </span>
           </div>
+          <p className="product-view-note">{t("products.viewNote")}</p>
           <div className={`product-grid filter-${filter}`}>
             {displayed.map((product) => (
               <ProductCard
@@ -493,117 +481,7 @@ function App() {
             ))}
           </div>
         </section>
-        <section
-          className="connection-section"
-          id="connections"
-          aria-labelledby="connection-title"
-        >
-          <div className="section">
-            <div className="section-intro reveal">
-              <div>
-                <p className="eyebrow mono">{t("connection.eyebrow")}</p>
-                <h2 id="connection-title">
-                  {t("connection.title")}
-                  <br />
-                  <span className="muted-heading">
-                    {t("connection.title2")}
-                  </span>
-                </h2>
-              </div>
-              <p className="section-description">
-                {t("connection.description")}
-              </p>
-            </div>
-            <div className="connection-panel reveal">
-              <div className="connection-panel-top">
-                <div className="flow-tabs">
-                  {(["ai", "value"] as const).map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setFlow(item)}
-                      className={flow === item ? "active" : ""}
-                      aria-pressed={flow === item}
-                    >
-                      {t(item === "ai" ? "connection.ai" : "connection.value")}
-                      {flow === item && <ArrowUpRight size={14} />}
-                    </button>
-                  ))}
-                </div>
-                <span className="mono connection-index">
-                  INTERCONNECTION / 0{flow === "ai" ? "1" : "2"}
-                </span>
-              </div>
-              <div className="flow-map" data-flow={flow}>
-                {flows[flow].map((node, index) => (
-                  <div key={node.id} className="flow-unit">
-                    <span className="flow-label mono">
-                      0{index + 1} / {t(node.label)}
-                    </span>
-                    <button
-                      className="flow-node"
-                      onClick={() => selectProduct(productById[node.id])}
-                      style={
-                        {
-                          "--accent": productById[node.id].accent,
-                        } as CSSProperties
-                      }
-                    >
-                      <ProductMark id={node.id} />
-                      <span>{productById[node.id].name}</span>
-                      <ArrowUpRight size={13} />
-                    </button>
-                    {index < flows[flow].length - 1 && (
-                      <div className="flow-line" aria-hidden="true">
-                        <span />
-                        <ArrowRight size={13} />
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              {flow === "value" && (
-                <button
-                  className="settlement-node"
-                  onClick={() => selectProduct(productById.midas)}
-                >
-                  <ProductMark id="midas" />
-                  <span>Midas</span>
-                  <span className="mono">{t("connection.label.payment")}</span>
-                  <ArrowUpRight size={13} />
-                </button>
-              )}
-              <div className="flow-description" aria-live="polite">
-                <div>
-                  <h3>
-                    {t(
-                      flow === "ai"
-                        ? "connection.ai.title"
-                        : "connection.value.title",
-                    )}
-                  </h3>
-                  <p>
-                    {t(
-                      flow === "ai"
-                        ? "connection.ai.description"
-                        : "connection.value.description",
-                    )}
-                  </p>
-                </div>
-                <span className="flow-hint">
-                  <Plus size={15} />
-                  {t("connection.hint")}
-                </span>
-              </div>
-              <div className="connection-panel-bottom mono">
-                <span>
-                  <span className="small-dot" />
-                  {t("connection.note")}
-                </span>
-                <span>NTNL.IO</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Connections t={t} onSelect={selectProduct} />
         <section
           className="section philosophy-section"
           id="philosophy"
@@ -686,7 +564,7 @@ function App() {
             </div>
           </div>
           <div className="footer-links">
-            <span className="mono">{t("products.value")}</span>
+            <span className="mono">{t("footer.products.more")}</span>
             <div>
               {products.slice(4).map((product) => (
                 <a

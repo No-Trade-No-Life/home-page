@@ -1,11 +1,24 @@
 import type { CopyKey } from "./copy";
 export type ProductId =
-  "linkit" | "cybion" | "normai" | "ctx" | "midas" | "exchange" | "hit";
-export type Category = "all" | "ai" | "value";
+  | "linkit"
+  | "cybion"
+  | "normai"
+  | "ctx"
+  | "firma"
+  | "midas"
+  | "exchange"
+  | "hit";
+export type ProductView = "ai" | "fund" | "shared";
+export type ProductFilter = "all" | ProductView;
+export const productViewKeys: Record<ProductView, CopyKey> = {
+  ai: "products.ai",
+  fund: "products.fund",
+  shared: "products.shared",
+};
 export type Product = {
   id: ProductId;
   name: string;
-  category: Exclude<Category, "all">;
+  views: ProductView[];
   domain: string;
   accent: string;
   role: CopyKey;
@@ -13,12 +26,13 @@ export type Product = {
   description: CopyKey;
   detail: CopyKey;
   features: CopyKey[];
+  note?: CopyKey;
 };
 export const products: Product[] = [
   {
     id: "linkit",
     name: "Linkit",
-    category: "ai",
+    views: ["ai", "fund", "shared"],
     domain: "linkit.ntnl.io",
     accent: "#b9a0ff",
     role: "linkit.role",
@@ -30,7 +44,7 @@ export const products: Product[] = [
   {
     id: "cybion",
     name: "Cybion",
-    category: "ai",
+    views: ["ai", "fund"],
     domain: "cybion.ntnl.io",
     accent: "#c4f780",
     role: "cybion.role",
@@ -42,7 +56,7 @@ export const products: Product[] = [
   {
     id: "normai",
     name: "NormAI",
-    category: "ai",
+    views: ["ai"],
     domain: "normai.ntnl.io",
     accent: "#89c8fa",
     role: "normai.role",
@@ -54,7 +68,7 @@ export const products: Product[] = [
   {
     id: "ctx",
     name: "CTX",
-    category: "ai",
+    views: ["ai"],
     domain: "ctx.ntnl.io",
     accent: "#f1a7b7",
     role: "ctx.role",
@@ -64,9 +78,22 @@ export const products: Product[] = [
     features: ["ctx.f1", "ctx.f2", "ctx.f3"],
   },
   {
+    id: "firma",
+    name: "Firma",
+    views: ["fund"],
+    domain: "firma.ntnl.io",
+    accent: "#a8d6ef",
+    role: "firma.role",
+    title: "firma.title",
+    description: "firma.description",
+    detail: "firma.detail",
+    features: ["firma.f1", "firma.f2", "firma.f3", "firma.f4"],
+    note: "firma.availability",
+  },
+  {
     id: "midas",
     name: "Midas",
-    category: "value",
+    views: ["ai", "fund", "shared"],
     domain: "midas.ntnl.io",
     accent: "#e8cc8c",
     role: "midas.role",
@@ -78,7 +105,7 @@ export const products: Product[] = [
   {
     id: "exchange",
     name: "1Exchange",
-    category: "value",
+    views: ["fund"],
     domain: "1ex.ntnl.io",
     accent: "#90d9c5",
     role: "exchange.role",
@@ -90,7 +117,7 @@ export const products: Product[] = [
   {
     id: "hit",
     name: "HIT",
-    category: "value",
+    views: ["fund"],
     domain: "hit.ntnl.io",
     accent: "#f5a383",
     role: "hit.role",
@@ -98,8 +125,15 @@ export const products: Product[] = [
     description: "hit.description",
     detail: "hit.detail",
     features: ["hit.f1", "hit.f2", "hit.f3"],
+    note: "hit.risk",
   },
 ];
 export const productById = Object.fromEntries(
   products.map((product) => [product.id, product]),
 ) as Record<ProductId, Product>;
+
+export function productsForView(view: ProductFilter): Product[] {
+  return view === "all"
+    ? products
+    : products.filter((product) => product.views.includes(view));
+}

@@ -5,6 +5,7 @@ const products = [
   "Cybion",
   "NormAI",
   "CTX",
+  "Firma",
   "Midas",
   "1Exchange",
   "HIT",
@@ -13,7 +14,7 @@ async function resizeForLayout(page: Page, width: number, height = 1000) {
   await page.setViewportSize({ width, height });
   // INVARIANT: viewport metrics can change before Chrome has recomputed media
   // queries and viewport-unit tokens. Measure only after the new CSS resolves.
-  const gutter = Math.min(80, Math.max(24, Number((width * 0.045).toFixed(2))));
+  const gutter = Math.min(80, Math.max(24, Number((width * 0.045).toFixed(3))));
   await expect(page.locator("#ecosystem")).toHaveCSS(
     "padding-left",
     `${gutter}px`,
@@ -32,19 +33,22 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
 });
-test("seven products, local assets, no browser errors", async ({ page }) => {
+test("eight products, same-origin app assets, no browser errors", async ({
+  page,
+  baseURL,
+}) => {
+  const origin = new URL(baseURL!).origin;
   const errors: string[] = [];
   const remote: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("request", (request) => {
-    if (!request.url().startsWith("http://127.0.0.1:4174"))
-      remote.push(request.url());
+    if (new URL(request.url()).origin !== origin) remote.push(request.url());
   });
   await page.reload();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "NO TRADE.NO LIFE.",
   );
-  await expect(page.locator(".product-card")).toHaveCount(7);
+  await expect(page.locator(".product-card")).toHaveCount(8);
   for (const name of products)
     await expect(
       page
@@ -53,28 +57,50 @@ test("seven products, local assets, no browser errors", async ({ page }) => {
     ).toBeAttached();
   await expect(page.locator("canvas")).toHaveAttribute("aria-label", /旋转/);
   expect(errors).toEqual([]);
-  expect(remote).toEqual([]);
+  // The existing production CDN may inject its own beacon; the checked app
+  // build still allows no external asset requests on the local preview.
+  const unexpected =
+    origin === "https://www.ntnl.io"
+      ? remote.filter(
+          (url) =>
+            !/^https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js(?:\/[^?]+)?(?:\?.*)?$/.test(
+              url,
+            ),
+        )
+      : remote;
+  expect(unexpected).toEqual([]);
 });
-test("product category filtering", async ({ page }) => {
-  await page
-    .locator(".filters")
-    .getByRole("button", { name: /智能协作/ })
-    .click();
-  await expect(page.locator(".product-card")).toHaveCount(4);
-  await expect(page.locator(".card-midas")).toHaveCount(0);
-  await page
-    .locator(".filters")
-    .getByRole("button", { name: /价值流通/ })
-    .click();
-  await expect(page.locator(".product-card")).toHaveCount(3);
-  await expect(page.locator(".card-cybion")).toHaveCount(0);
-  await page
-    .locator(".filters")
-    .getByRole("button", { name: /全部产品/ })
-    .click();
-  await expect(page.locator(".product-card")).toHaveCount(7);
+test("scenario filters overlap and retain the shared products", async ({
+  page,
+}) => {
+  const cases = [
+    {
+      name: /智能协作/,
+      products: ["Linkit", "Cybion", "NormAI", "CTX", "Midas"],
+      count: "05",
+    },
+    {
+      name: /基金投资/,
+      products: ["Linkit", "Cybion", "Firma", "Midas", "1Exchange", "HIT"],
+      count: "06",
+    },
+    { name: /跨场景能力/, products: ["Linkit", "Midas"], count: "02" },
+    { name: /全部产品/, products, count: "08" },
+  ];
+  for (const item of cases) {
+    const filter = page
+      .locator(".filters")
+      .getByRole("button", { name: item.name });
+    await filter.click();
+    await expect(filter).toHaveAttribute("aria-pressed", "true");
+    await expect(filter.locator(".mono")).toHaveText(item.count);
+    await expect(page.locator(".card-identity h3")).toHaveText(item.products);
+  }
+  await expect(page.locator(".product-view-note")).toContainText(
+    "产品可以出现在多个视图中",
+  );
 });
-test("all seven detail dialogs, correct external links, Escape, and focus return", async ({
+test("all eight detail dialogs, correct external links, Escape, and focus return", async ({
   page,
 }) => {
   for (const name of products) {
@@ -90,7 +116,7 @@ test("all seven detail dialogs, correct external links, Escape, and focus return
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
-      /^https:\/\/(linkit|cybion|normai|ctx|midas|1ex|hit)\.ntnl\.io$/,
+      /^https:\/\/(linkit|cybion|normai|ctx|firma|midas|1ex|hit)\.ntnl\.io$/,
     );
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
     if (name === "HIT")
@@ -123,28 +149,150 @@ test("language menu, translated details, and persistent choice", async ({
   await page.getByRole("menuitemradio", { name: "简体中文" }).click();
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
 });
-test("connected workflows and payment layer", async ({ page }) => {
-  await expect(page.locator(".flow-map .flow-node")).toHaveCount(4);
-  await page
-    .locator(".flow-tabs")
-    .getByRole("button", { name: "交易执行" })
-    .click();
-  await expect(page.locator(".flow-map")).toHaveAttribute("data-flow", "value");
-  await expect(page.locator(".flow-map .flow-node")).toHaveCount(3);
-  await page.locator(".settlement-node").click();
-  await expect(
-    page
-      .getByRole("dialog")
-      .getByRole("heading", { name: "Midas", exact: true }),
-  ).toBeVisible();
-  await page.keyboard.press("Escape");
-  await page
-    .locator(".flow-tabs")
-    .getByRole("button", { name: "智能协作" })
-    .click();
-  await expect(page.locator(".flow-map .flow-node")).toHaveCount(4);
-  await expect(page.locator(".settlement-node")).toHaveCount(0);
+test("open combinations is the default, with all eight explorable products", async ({
+  page,
+}) => {
+  await expect(page.locator(".scenario-view")).toHaveAttribute(
+    "data-view",
+    "open",
+  );
+  await expect(page.locator(".network-node")).toHaveCount(8);
+  await expect(page.locator(".shared-services .scenario-product")).toHaveCount(
+    2,
+  );
+  for (const name of products) {
+    const trigger = page
+      .locator(".network-grid")
+      .getByRole("button", { name: `了解产品 ${name}`, exact: true });
+    await trigger.click();
+    await expect(
+      page.getByRole("dialog").getByRole("heading", { name, exact: true }),
+    ).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(trigger).toBeFocused();
+  }
+  await expect(page.locator(".scenario-panel-bottom")).toContainText(
+    "不代表接口已全部打通",
+  );
+  await expect(page.locator(".more-combinations")).toContainText(
+    "场景只是示例",
+  );
 });
+
+test("fund investing follows the six user-specified product roles", async ({
+  page,
+}) => {
+  await page.locator('[data-scenario="fund"]').click();
+  await expect(page.locator(".scenario-view")).toHaveAttribute(
+    "data-view",
+    "fund",
+  );
+  expect(
+    await page
+      .locator(".fund-path > li")
+      .evaluateAll((nodes) =>
+        nodes.map((node) => node.getAttribute("data-stage")),
+      ),
+  ).toEqual(["midas", "firma", "cybion", "hit", "exchange", "linkit"]);
+  await expect(page.locator(".fund-path .scenario-product-role")).toHaveText([
+    "募资收款",
+    "研究数据",
+    "形成生产策略",
+    "实盘交易落地",
+    "创建与管理基金",
+    "投资者沟通管理",
+  ]);
+  await expect(page.locator(".scenario-caution")).toContainText(
+    "不是自动打通的投资服务",
+  );
+  await expect(page.locator(".shared-grid .scenario-product")).toHaveCount(2);
+  for (const name of [
+    "Midas",
+    "Firma",
+    "Cybion",
+    "HIT",
+    "1Exchange",
+    "Linkit",
+  ]) {
+    const trigger = page
+      .locator(".fund-path")
+      .getByRole("button", { name: `了解产品 ${name}`, exact: true });
+    await trigger.click();
+    await expect(
+      page.getByRole("dialog").getByRole("heading", { name, exact: true }),
+    ).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(trigger).toBeFocused();
+  }
+});
+
+test("intelligent collaboration branches at Cybion and settles NormAI through Midas", async ({
+  page,
+}) => {
+  await page.locator('[data-scenario="ai"]').click();
+  await expect(page.locator(".scenario-view")).toHaveAttribute(
+    "data-view",
+    "ai",
+  );
+  const productIds = (selector: string) =>
+    page
+      .locator(selector)
+      .evaluateAll((nodes) =>
+        nodes.map((node) => node.getAttribute("data-product")),
+      );
+  expect(await productIds(".ai-entry .scenario-product")).toEqual([
+    "linkit",
+    "cybion",
+  ]);
+  expect(await productIds(".ai-context .scenario-product")).toEqual(["ctx"]);
+  expect(await productIds(".ai-model-billing .scenario-product")).toEqual([
+    "normai",
+    "midas",
+  ]);
+  await expect(page.locator(".ai-billing-label")).toHaveText(
+    "NormAI 通过 Midas 支付结算",
+  );
+  await expect(
+    page.locator(".shared-grid .scenario-product-heading strong"),
+  ).toHaveText(["Linkit", "Midas"]);
+  await expect(page.locator(".scenario-view")).toContainText("个人上下文");
+  await expect(page.locator("body")).not.toContainText("智能社群");
+  await expect(page.locator("body")).not.toContainText("智能写作");
+  for (const name of ["Linkit", "Cybion", "CTX", "NormAI", "Midas"]) {
+    await page
+      .locator(".ai-scenario")
+      .getByRole("button", { name: `了解产品 ${name}`, exact: true })
+      .click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await page.keyboard.press("Escape");
+  }
+  await page.locator('[data-scenario="open"]').click();
+  await expect(page.locator(".network-node")).toHaveCount(8);
+});
+
+test("Firma preserves publishing identity, honest availability, and a direct anchor", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/#product-firma");
+  await expect(page.locator("#product-firma")).toBeInViewport();
+  const trigger = page
+    .locator("#product-firma")
+    .getByRole("button", { name: "了解产品 Firma" });
+  await trigger.click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("Single Truth Publisher");
+  await expect(dialog).toContainText("生态认证内默认开放读取");
+  await expect(dialog.locator(".risk-note")).toContainText(
+    "外部发布接口仍在规划中",
+  );
+  await expect(
+    dialog.getByRole("link", { name: "打开产品 Firma" }),
+  ).toHaveAttribute("href", "https://firma.ntnl.io");
+  await page.keyboard.press("Escape");
+  await expect(trigger).toBeFocused();
+});
+
 test("motion control and reduced-motion preference", async ({ page }) => {
   await page.getByRole("button", { name: "暂停动态效果" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-paused", "true");
@@ -212,10 +360,13 @@ test("accessibility audit, including product dialog", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
   await page.evaluate(() => document.fonts.ready);
-  const pageResults = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-    .analyze();
-  expect(pageResults.violations).toEqual([]);
+  for (const view of ["open", "ai", "fund"]) {
+    await page.locator(`[data-scenario="${view}"]`).click();
+    const pageResults = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+      .analyze();
+    expect(pageResults.violations).toEqual([]);
+  }
   await page
     .locator(".product-grid")
     .getByRole("button", { name: "了解产品 HIT", exact: true })
@@ -230,6 +381,7 @@ test("accessibility audit, including product dialog", async ({ page }) => {
 test("every rendered label is at least 14px, including artwork, menus, and dialogs", async ({
   page,
 }) => {
+  test.setTimeout(90000);
   const auditType = async () => {
     const undersized = await page.evaluate(() => {
       return Array.from(document.querySelectorAll("body *"))
@@ -261,19 +413,35 @@ test("every rendered label is at least 14px, including artwork, menus, and dialo
       await page.getByRole("menuitemradio", { name: "English" }).click();
       await expect(page.getByRole("menu")).toHaveCount(0);
     }
-    for (const width of [320, 360, 390, 768, 1024, 1440, 1920]) {
-      await resizeForLayout(page, width);
-      await auditType();
-      const copySizes = await page
-        .locator(".card-bottom p")
-        .evaluateAll((elements) =>
-          elements.map((element) =>
-            parseFloat(getComputedStyle(element).fontSize),
+    for (const view of ["open", "ai", "fund"]) {
+      await page.locator(`[data-scenario="${view}"]`).click();
+      for (const width of [320, 360, 390, 768, 1024, 1440, 1920]) {
+        await resizeForLayout(page, width);
+        await auditType();
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
           ),
+        ).toBe(true);
+        const clipped = await page
+          .locator(".scenario-product, .network-node")
+          .evaluateAll((nodes) =>
+            nodes
+              .filter((node) => node.scrollWidth > node.clientWidth + 1)
+              .map((node) => node.textContent),
+          );
+        expect(clipped).toEqual([]);
+        const copySizes = await page
+          .locator(".card-bottom p")
+          .evaluateAll((elements) =>
+            elements.map((element) =>
+              parseFloat(getComputedStyle(element).fontSize),
+            ),
+          );
+        expect(copySizes.every((size) => size >= (width > 900 ? 20 : 18))).toBe(
+          true,
         );
-      expect(copySizes.every((size) => size >= (width > 900 ? 20 : 18))).toBe(
-        true,
-      );
+      }
     }
     await resizeForLayout(page, 390, 844);
     for (const name of products) {
@@ -341,4 +509,81 @@ test("large copy stays inside its card without clipping or illustration overlap"
       expect(clipped).toEqual([]);
     }
   }
+});
+
+test("eight hero nodes remain distinct and within the illustration at every breakpoint", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(".orbit-node")).toHaveCount(8);
+  for (const width of [
+    320, 360, 390, 650, 768, 900, 1024, 1101, 1250, 1440, 1920,
+  ]) {
+    await resizeForLayout(page, width);
+    const problems = await page
+      .locator(".hero-visual")
+      .evaluate((container) => {
+        const parent = container.getBoundingClientRect();
+        const nodes = Array.from(container.querySelectorAll(".orbit-node"));
+        const errors: string[] = [];
+        nodes.forEach((node, i) => {
+          const rect = node.getBoundingClientRect();
+          if (
+            rect.left < parent.left - 1 ||
+            rect.right > parent.right + 1 ||
+            rect.top < parent.top ||
+            rect.bottom > parent.bottom + 1
+          )
+            errors.push(`outside: ${node.textContent}`);
+          nodes.slice(i + 1).forEach((other) => {
+            const b = other.getBoundingClientRect();
+            if (
+              rect.left < b.right &&
+              rect.right > b.left &&
+              rect.top < b.bottom &&
+              rect.bottom > b.top
+            )
+              errors.push(`${node.textContent} overlaps ${other.textContent}`);
+          });
+        });
+        return errors;
+      });
+    expect(problems, `viewport ${width}`).toEqual([]);
+  }
+});
+
+test("English scenario copy retains the same roles and shared capabilities", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "选择语言" }).click();
+  await page.getByRole("menuitemradio", { name: "English" }).click();
+  await expect(page.locator(".scenario-tabs button")).toHaveText([
+    "Open combinations",
+    "Intelligent collaboration",
+    "Fund investing",
+  ]);
+  await page.locator('[data-scenario="fund"]').click();
+  await expect(page.locator(".fund-path .scenario-product-role")).toHaveText([
+    "COLLECT CAPITAL",
+    "RESEARCH DATA",
+    "PRODUCTION STRATEGY",
+    "LIVE EXECUTION",
+    "CREATE & MANAGE FUNDS",
+    "INVESTOR COMMUNICATION",
+  ]);
+  await expect(page.locator(".scenario-intro")).toContainText(
+    "Midas handles capital collection",
+  );
+  await page.locator('[data-scenario="ai"]').click();
+  await expect(page.locator(".ai-billing-label")).toHaveText(
+    "NormAI settles payments through Midas",
+  );
+  await expect(
+    page.locator(".shared-grid .scenario-product-heading strong"),
+  ).toHaveText(["Linkit", "Midas"]);
+  await page
+    .locator(".filters")
+    .getByRole("button", { name: /Intelligent collaboration/ })
+    .click();
+  await expect(page.locator(".product-card")).toHaveCount(5);
 });
