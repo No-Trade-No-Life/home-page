@@ -4,16 +4,7 @@ const paths: Record<ProductId, React.ReactNode> = {
   cybion: <path d="M16 4 29 27H3Z" />,
   normai: <circle cx="16" cy="16" r="11" />,
   ctx: <path d="m6 6 20 20M26 6 6 26" />,
-  firma: (
-    <>
-      <path d="M4 25H28M6 25a10 10 0 0 1 20 0" />
-      <circle cx="16" cy="9.5" r="1.7" fill="currentColor" stroke="none" />
-      <circle cx="10.5" cy="14.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="21.5" cy="14.5" r="1.2" fill="currentColor" stroke="none" />
-      <circle cx="14" cy="19.5" r="1" fill="currentColor" stroke="none" />
-      <circle cx="18" cy="19.5" r="1" fill="currentColor" stroke="none" />
-    </>
-  ),
+  firma: <path d="M7 27V15a10 10 0 0 1 10-10h9M7 17h15" />,
   midas: (
     <>
       <path d="m4 24 5-16 7 11 7-11 5 16M8 27h16" />

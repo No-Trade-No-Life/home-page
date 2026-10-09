@@ -310,6 +310,65 @@ test("Firma preserves publishing identity, honest availability, and a direct anc
   await expect(trigger).toBeFocused();
 });
 
+test("Firma uses one consistent SVG logo across surfaces and the reusable asset", async ({
+  page,
+  request,
+}) => {
+  const response = await request.get("/marks/firma.svg");
+  expect(response.ok()).toBeTruthy();
+  expect(response.headers()["content-type"]).toContain("image/svg+xml");
+  const asset = await page.evaluate(
+    (source) => {
+      const svg = new DOMParser().parseFromString(source, "image/svg+xml");
+      return {
+        path: svg.querySelector("path")!.getAttribute("d"),
+        pathCount: svg.querySelectorAll("path").length,
+        viewBox: svg.documentElement.getAttribute("viewBox"),
+        fill: svg.documentElement.getAttribute("fill"),
+        stroke: svg.documentElement.getAttribute("stroke"),
+        strokeWidth: svg.documentElement.getAttribute("stroke-width"),
+        linecap: svg.documentElement.getAttribute("stroke-linecap"),
+        linejoin: svg.documentElement.getAttribute("stroke-linejoin"),
+        title: svg.querySelector("title")!.textContent,
+      };
+    },
+    await response.text(),
+  );
+  expect(asset.pathCount).toBe(1);
+  expect(asset.title).toBe("Firma");
+  const mark = page.locator(".card-firma .product-mark");
+  await expect(mark).toHaveAttribute("viewBox", asset.viewBox!);
+  await expect(mark).toHaveAttribute("fill", asset.fill!);
+  await expect(mark).toHaveAttribute("stroke", asset.stroke!);
+  await expect(mark).toHaveAttribute("stroke-width", asset.strokeWidth!);
+  await expect(mark).toHaveAttribute("stroke-linecap", asset.linecap!);
+  await expect(mark).toHaveAttribute("stroke-linejoin", asset.linejoin!);
+  await expect(mark.locator(":scope > *")).toHaveCount(1);
+  await expect(mark.locator("path")).toHaveAttribute("d", asset.path!);
+  const geometry = await mark.innerHTML();
+  for (const selector of [
+    ".node-firma .product-mark",
+    '.product-strip button[aria-label="了解产品 Firma"] .product-mark',
+    '.network-node[data-product="firma"] .product-mark',
+  ]) {
+    expect(await page.locator(selector).innerHTML()).toBe(geometry);
+  }
+  await page.locator(".node-firma").click();
+  expect(
+    await page.locator(".dialog-heading > .product-mark").innerHTML(),
+  ).toBe(geometry);
+  await page.keyboard.press("Escape");
+  await page.locator('[data-scenario="fund"]').click();
+  expect(
+    await page
+      .locator('.scenario-product[data-product="firma"] .product-mark')
+      .innerHTML(),
+  ).toBe(geometry);
+  await expect(page.locator(".firmament-sculpture .firma-dome")).toHaveCount(1);
+  await expect(page.locator(".firmament-sculpture circle")).toHaveCount(4);
+  await expect(page.locator(".firmament-sculpture rect")).toHaveCount(3);
+});
+
 test("motion control and reduced-motion preference", async ({ page }) => {
   await page.getByRole("button", { name: "暂停动态效果" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-paused", "true");
