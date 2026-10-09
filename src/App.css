@@ -618,30 +618,15 @@
 .card-link:hover svg {
   transform: translate(3px, -3px);
 }
-:is(.card-hit, .card-firma) {
-  grid-column: 1/-1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 1fr);
-  grid-template-areas: "identity art" "copy art";
-  gap: 32px 48px;
-  padding: 40px;
+/* Firma and HIT share one row: HIT moves up beside Firma, ahead of Midas and 1Exchange. */
+.card-hit {
+  order: 1;
 }
-:is(.card-hit, .card-firma) .card-top {
-  grid-area: identity;
-  padding: 0;
+.card-midas {
+  order: 2;
 }
-:is(.card-hit, .card-firma) .card-bottom {
-  grid-area: copy;
-  padding: 0;
-}
-:is(.card-hit, .card-firma) .product-art {
-  grid-area: art;
-  margin: 0;
-  align-self: center;
-  height: 320px;
-}
-:is(.card-hit, .card-firma) .product-art > div {
-  scale: 1.5;
+.card-exchange {
+  order: 3;
 }
 
 .philosophy-top {
@@ -1069,10 +1054,6 @@
   .card-bottom {
     padding: 0 32px 32px;
   }
-  :is(.card-hit, .card-firma) {
-    padding: 32px;
-    gap: 32px;
-  }
   .philosophy-main {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1107,26 +1088,6 @@
   }
   .product-card {
     border-radius: 10px;
-  }
-  :is(.card-hit, .card-firma) {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-  }
-  :is(.card-hit, .card-firma) .card-top {
-    padding: 32px 32px 0;
-  }
-  :is(.card-hit, .card-firma) .card-bottom {
-    padding: 0 32px 32px;
-  }
-  :is(.card-hit, .card-firma) .product-art {
-    height: 256px;
-    margin: 20px 0 24px;
-    align-self: stretch;
-  }
-  :is(.card-hit, .card-firma) .product-art > div {
-    scale: 1.18;
   }
   .principles {
     grid-template-columns: 1fr;
@@ -1291,8 +1252,7 @@
   .product-grid {
     gap: 24px;
   }
-  .card-top,
-  :is(.card-hit, .card-firma) .card-top {
+  .card-top {
     padding: 28px 24px 0;
   }
   .card-identity {
@@ -1305,17 +1265,14 @@
     width: 32px;
     height: 32px;
   }
-  .product-art,
-  :is(.card-hit, .card-firma) .product-art {
+  .product-art {
     height: 232px;
     margin: 24px 0;
   }
-  .product-art > div,
-  :is(.card-hit, .card-firma) .product-art > div {
+  .product-art > div {
     scale: 1;
   }
-  .card-bottom,
-  :is(.card-hit, .card-firma) .card-bottom {
+  .card-bottom {
     padding: 0 24px 28px;
   }
   .card-bottom p {
@@ -1448,6 +1405,7 @@
   gap: 8px 16px;
   line-height: 1.8;
 }
+/* The firmament dome illustration needs a taller tile and stays at native scale. */
 .card-firma .product-art {
   height: 320px;
   min-height: 304px;

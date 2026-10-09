@@ -49,7 +49,7 @@ The product dialog distinguishes available data reading/export/sync and administ
 
 - No rendered text below **14px**, including artwork, menus, notes, footer, and dialogs.
 - Desktop body **20px**, mobile/tablet **18px**, card statements **28px**, product names **30–32px**, navigation/actions **18px**.
-- Spacious two-column product cards; Firma and HIT use wide feature rows; one column below 900px.
+- Spacious two-column product cards; Firma and HIT share one row; one column below 900px.
 - Product dialogs restore focus to their opener and scroll safely on mobile.
 - Scenario buttons expose their selected state. Every product node opens the same accessible product dialog.
 - The torus respects reduced motion and pause controls and stops offscreen or in a hidden tab.
