@@ -100,6 +100,23 @@ test("scenario filters overlap and retain the shared products", async ({
     "产品可以出现在多个视图中",
   );
 });
+test("Firma and HIT share one row in the two-column grid", async ({
+  page,
+  isMobile,
+}) => {
+  // INVARIANT: below 900px the grid is a single column, where a shared row
+  // does not exist; on wider screens the pair must stay side by side.
+  test.skip(isMobile, "single column below 900px");
+  for (const name of [/全部产品/, /基金投资/]) {
+    await page.locator(".filters").getByRole("button", { name }).click();
+    const firma = await page.locator(".card-firma").boundingBox();
+    const hit = await page.locator(".card-hit").boundingBox();
+    expect(firma).not.toBeNull();
+    expect(hit).not.toBeNull();
+    expect(Math.abs(firma!.y - hit!.y)).toBeLessThanOrEqual(1);
+    expect(firma!.x + firma!.width).toBeLessThanOrEqual(hit!.x + 1);
+  }
+});
 test("all eight detail dialogs, correct external links, Escape, and focus return", async ({
   page,
 }) => {
