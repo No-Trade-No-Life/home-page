@@ -310,7 +310,7 @@ test("Firma preserves publishing identity, honest availability, and a direct anc
   await expect(trigger).toBeFocused();
 });
 
-test("Firma uses one consistent SVG logo across surfaces and the reusable asset", async ({
+test("Firma uses the round dome SVG consistently across surfaces and the reusable asset", async ({
   page,
   request,
 }) => {
@@ -333,6 +333,9 @@ test("Firma uses one consistent SVG logo across surfaces and the reusable asset"
       };
     },
     await response.text(),
+  );
+  expect(asset.path).toBe(
+    "M4 20a12 12 0 0 1 24 0M4 20a12 4 0 1 0 24 0 12 4 0 1 0-24 0M16 8v16",
   );
   expect(asset.pathCount).toBe(1);
   expect(asset.title).toBe("Firma");

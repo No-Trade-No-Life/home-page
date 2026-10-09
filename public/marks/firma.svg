@@ -12,5 +12,7 @@
   aria-labelledby="firma-title"
 >
   <title id="firma-title">Firma</title>
-  <path d="M7 27V15a10 10 0 0 1 10-10h9M7 17h15" />
+  <path
+    d="M4 20a12 12 0 0 1 24 0M4 20a12 4 0 1 0 24 0 12 4 0 1 0-24 0M16 8v16"
+  />
 </svg>
