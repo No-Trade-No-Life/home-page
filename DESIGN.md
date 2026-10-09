@@ -2,7 +2,13 @@
 
 ## Visual direction
 
-Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / ✕ CTX identities remain, and Firma uses its project's dome-and-stars mark. Original CSS/SVG artwork stays independent of an image service.
+Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / ✕ CTX identities remain, and Firma uses a vaulted F monogram. Original CSS/SVG artwork stays independent of an image service.
+
+## Firma logo
+
+Firma's homepage mark is a **vaulted F**: an upright stem, a quarter-circle shoulder opening into the top bar, and a shorter middle bar. The curved shoulder recalls Firmament's canopy while the F makes the product name recognizable without relying on tiny decorative stars. It uses one SVG path, a 32 × 32 viewBox, and the existing 1.8-unit rounded `currentColor` stroke, so it retains the ecosystem's monoline weight at 20–48px.
+
+`src/components/Marks.tsx` remains the shared inline mark for the hero, product strip, card, detail dialog, open network, and fund scenario. `public/marks/firma.svg` is a self-contained, transparent SVG for reuse; browser tests verify its geometry and stroke match the inline mark. The Firma card's dome-and-data illustration, product accent, layout, copy, other product marks, and the separate Firma application are unchanged. No image-service output or raster dependency is added to the site. This is a static geometry replacement: no new runtime branches or compatibility paths.
 
 ## Product model: overlapping views
 
