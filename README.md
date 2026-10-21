@@ -9,17 +9,17 @@ This repository contains the React source and deploys the production build throu
 Use Node.js 24 and npm.
 
 ```sh
-npm ci
-npm run dev -- --host 127.0.0.1 --port 4173
+pnpm install --frozen-lockfile
+pnpm run dev -- --host 127.0.0.1 --port 4173
 ```
 
 ## Build and verify
 
 ```sh
-npm run format:check
-npm run check
+pnpm run format:check
+pnpm run check
 # After a successful release, run the same read-only browser suite on production:
-SITE_URL=https://www.ntnl.io npm test
+SITE_URL=https://www.ntnl.io pnpm test
 ```
 
 `check` runs lint, the production build, and Playwright browser tests. Tests use installed Chrome locally and the preinstalled Chrome on GitHub's Ubuntu 24.04 runner. CI records the browser version without a separate operating-system dependency installation. Both desktop and mobile tests run against the production build on port 4174.
@@ -54,7 +54,7 @@ Merge a checked PR into `main`. `Release website` reruns quality checks and depl
 
 Artwork is implemented in Canvas/SVG/CSS, without an image-service dependency. The torus caps pixel ratio at 1.75 and runs around 30 FPS; it stops offscreen, while the document is hidden, when paused, or when reduced motion is requested. Manrope and IBM Plex Mono are self-hosted through Fontsource; Chinese uses the operating system font. Font license notices are in `public/licenses/`.
 
-`npm run social` regenerates the committed social image using local Chrome.
+`pnpm run social` regenerates the committed social image using local Chrome.
 
 ## Product boundaries
 
