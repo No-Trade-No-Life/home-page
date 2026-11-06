@@ -172,7 +172,7 @@
   text-align: center;
   transform: translateX(-50%);
 }
-.context-sculpture {
+.docs-sculpture {
   position: relative;
   width: 230px;
   margin: auto;
@@ -180,7 +180,7 @@
   top: 30px;
   left: -12px;
 }
-.context-sheet {
+.docs-sheet {
   width: 155px;
   height: 106px;
   padding: 17px;
@@ -192,23 +192,23 @@
   left: 25px;
   box-shadow: 0 10px 20px #0004;
 }
-.context-sheet span {
+.docs-sheet span {
   font-family: "IBM Plex Mono", monospace;
   font-size: var(--text-caption);
   letter-spacing: 0;
   color: #f1a7b7;
 }
-.context-sheet b {
+.docs-sheet b {
   display: block;
   width: 60%;
   height: 2px;
   background: #f1a7b726;
   margin-top: 9px;
 }
-.context-sheet b:nth-of-type(2) {
+.docs-sheet b:nth-of-type(2) {
   width: 83%;
 }
-.context-sheet svg {
+.docs-sheet svg {
   position: absolute;
   right: 12px;
   bottom: 12px;

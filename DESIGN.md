@@ -2,7 +2,7 @@
 
 ## Visual direction
 
-Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / ✕ CTX identities remain, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
+Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / D Docs identities remain, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
 
 ## Firma logo
 
@@ -12,9 +12,9 @@ Firma's homepage mark is a **round hemispherical dome**, not a letter monogram. 
 
 ## Product model: overlapping views
 
-The eight products are Linkit, Cybion, NormAI, CTX, Firma (Firmament), Midas, 1Exchange, and HIT. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
+The eight products are Linkit, Cybion, NormAI, Docs, Firma (Firmament), Midas, 1Exchange, and HIT. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
 
-- **Intelligent collaboration / 智能协作:** Linkit, Cybion, CTX, NormAI, Midas.
+- **Intelligent collaboration / 智能协作:** Linkit, Cybion, Docs, NormAI, Midas.
 - **Fund investing / 基金投资:** Midas, Firma, Cybion, HIT, 1Exchange, Linkit.
 - **Shared capabilities / 跨场景能力:** Linkit and Midas.
 
@@ -26,7 +26,7 @@ The default **Open combinations** view shows all eight products in an unordered,
 
 ### Intelligent collaboration
 
-Find people with Linkit, then collaborate through their Cybion agents. Cybion draws personal context from CTX and obtains model access from NormAI; NormAI settles payments through Midas. The display branches at Cybion: CTX is not shown as a sequential caller of NormAI. The NormAI → Midas relationship is grouped explicitly.
+Find people with Linkit, then collaborate through their Cybion agents. Cybion draws personal documents and context from Docs and obtains model access from NormAI; NormAI settles payments through Midas. The display branches at Cybion: Docs is not shown as a sequential caller of NormAI. The NormAI → Midas relationship is grouped explicitly.
 
 ### Fund investing
 

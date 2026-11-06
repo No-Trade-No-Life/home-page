@@ -52,21 +52,21 @@ export function ProductArt({ id }: { id: ProductId }) {
           <span className="art-label">MANY MODELS. ONE INTERFACE.</span>
         </div>
       )}
-      {id === "ctx" && (
-        <div className="context-sculpture">
+      {id === "docs" && (
+        <div className="docs-sculpture">
           {[0, 1, 2].map((i) => (
             <div
-              className="context-sheet"
+              className="docs-sheet"
               key={i}
               style={{
                 transform: `translate(${i * 20}px, ${i * -14}px) rotate(-12deg)`,
               }}
             >
-              <span>CONTEXT / 0{i + 1}</span>
+              <span>DOCS / 0{i + 1}</span>
               <b />
               <b />
               <b />
-              <ProductMark id="ctx" />
+              <ProductMark id="docs" />
             </div>
           ))}
         </div>

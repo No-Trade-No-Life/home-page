@@ -3,7 +3,7 @@ const paths: Record<ProductId, React.ReactNode> = {
   linkit: <rect x="6" y="6" width="20" height="20" rx="1" />,
   cybion: <path d="M16 4 29 27H3Z" />,
   normai: <circle cx="16" cy="16" r="11" />,
-  ctx: <path d="m6 6 20 20M26 6 6 26" />,
+  docs: <path d="M9 5v22M9 5h3.6a11 11 0 0 1 0 22H9" />,
   firma: (
     <path d="M4 20a12 12 0 0 1 24 0M4 20a12 4 0 1 0 24 0 12 4 0 1 0-24 0M16 8v16" />
   ),
