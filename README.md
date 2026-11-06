@@ -24,7 +24,7 @@ SITE_URL=https://www.ntnl.io pnpm test
 
 `check` runs lint, the production build, and Playwright browser tests. Tests use installed Chrome locally and the preinstalled Chrome on GitHub's Ubuntu 24.04 runner. CI records the browser version without a separate operating-system dependency installation. Both desktop and mobile tests run against the production build on port 4174.
 
-Coverage includes all eight product dialogs and links, language persistence, focus restoration, overlapping scenario filters, the open capability network, intelligent collaboration and fund-investing examples, motion controls, deep links, responsive navigation, overflow, self-hosted resources, accessibility, production metadata, archived documentation paths, and the custom 404. The new website's rendered text has a strict **14px minimum**, audited in both languages from 320px to 1920px, including menus, artwork, and dialogs. Desktop body text is 20px and mobile/tablet body text is 18px.
+Coverage includes all nine product dialogs and links, language persistence, focus restoration, overlapping scenario filters, the open capability network, intelligent collaboration and fund-investing examples, motion controls, deep links, responsive navigation, overflow, self-hosted resources, accessibility, production metadata, archived documentation paths, and the custom 404. The new website's rendered text has a strict **14px minimum**, audited in both languages from 320px to 1920px, including menus, artwork, and dialogs. Desktop body text is 20px and mobile/tablet body text is 18px.
 
 Screenshots and reports are ignored by Git. Automated accessibility tests are not a complete accessibility certification.
 
@@ -60,10 +60,10 @@ Artwork is implemented in Canvas/SVG/CSS, without an image-service dependency. T
 
 NormAI provides unified model access, usage auditing, and USD billing. Midas provides payments and settlement. HIT consumes externally supplied target signals and supports user-controlled execution. The site introduces products without authenticating, executing trades, initiating payments, or exposing private project material.
 
-## Eight products, open combinations
+## Nine products, open combinations
 
 Firma (Firmament) joins the matrix as a Single Truth Publisher: shared datasets, a common manifest, and authorized local subsets. Its detail dialog separately identifies what is available now and what remains planned.
 
-The site defaults to an open, nondirectional network. Intelligent collaboration connects Linkit → Cybion, branches to Docs and NormAI, and shows NormAI → Midas settlement. The fund-investing example is Midas → Firma → Cybion → HIT → 1Exchange → Linkit. Linkit and Midas are also visible as shared capabilities in every view. These are example compositions, not exclusive groups, automatic product integrations, or an investment offer. See `DESIGN.md` for role boundaries and the complexity review.
+Eight products are featured in the hero ring, the product strip and the open network; Docs is the ninth, ordinary entry with a board card, a detail dialog and a footer link. The site defaults to an open, nondirectional network. Intelligent collaboration connects Linkit → Cybion, branches to eXe and NormAI, and shows NormAI → Midas settlement. The fund-investing example is Midas → Firma → Cybion → HIT → 1Exchange → Linkit. Linkit and Midas are also visible as shared capabilities in every view. These are example compositions, not exclusive groups, automatic product integrations, or an investment offer. See `DESIGN.md` for role boundaries and the complexity review.
 
 The application build has no telemetry. The existing Cloudflare edge can inject its performance beacon into browser responses; live-site verification must distinguish that host behavior from application asset requests. This deployment does not change Cloudflare settings.

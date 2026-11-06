@@ -10,7 +10,7 @@ export const zh = {
   "nav.skip": "跳到主要内容",
   "hero.eyebrow": "为智能而构建 · 为价值而连接",
   "hero.description":
-    "让智能成为行动，让连接创造价值。\n八个独立产品，组合不止一种。",
+    "让智能成为行动，让连接创造价值。\n九个独立产品，组合不止一种。",
   "hero.cta": "探索产品宇宙",
   "hero.secondary": "了解我们的理念",
   "hero.coordinate": "数据 × 智能 × 协作 × 价值",
@@ -58,6 +58,15 @@ export const zh = {
   "normai.f1": "模型访问与提供商管理",
   "normai.f2": "应用级凭据与调用审计",
   "normai.f3": "统一美元计费与 Midas 结算",
+  "exe.role": "跨设备执行",
+  "exe.title": "把设备，交给智能。",
+  "exe.description":
+    "接上一个 MCP，就能操作你名下的所有设备：执行命令、读取图片。身份只是一对密钥，公钥就是地址。",
+  "exe.detail":
+    "eXe（Executable）把调用方与设备连起来：调用由调用方签名后经中继投递，设备核对本地 trust 列表后才执行，结果用同一把密钥密封回传。中继只转信封，读不懂内容；一台机器既可以当设备，也可以当调用方。",
+  "exe.f1": "跨设备命令执行与读图",
+  "exe.f2": "Ed25519 身份：公钥即地址",
+  "exe.f3": "设备端 trust 白名单与密封回传",
   "docs.role": "你的文档与上下文",
   "docs.title": "让智能，真正理解你。",
   "docs.description":
@@ -137,26 +146,26 @@ export const zh = {
   "connection.title": "场景，是起点。",
   "connection.title2": "组合，没有定式。",
   "connection.description":
-    "八个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
+    "九个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
   "connection.open": "开放组合",
   "connection.ai": "智能协作",
   "connection.fund": "基金投资",
   "connection.open.title": "独立的能力，开放的连接。",
   "connection.open.description":
     "从你要完成的事情出发，选择数据、上下文、智能、执行、沟通和结算能力。产品没有唯一的搭配方式，也不被某个场景限定。",
-  "connection.open.caption": "八个独立产品 · 按目标自由组合",
+  "connection.open.caption": "九个独立产品 · 按目标自由组合",
   "connection.ai.title": "先找到人，再让分身协作。",
   "connection.ai.description":
-    "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 从 Docs 取用个人文档与上下文，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
-  "connection.ai.resources": "Cybion 按任务连接上下文与智能供应",
+    "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 用 eXe 在真实设备上执行，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
+  "connection.ai.resources": "Cybion 按任务连接执行能力与智能供应",
   "connection.ai.billing": "NormAI 通过 Midas 支付结算",
   "connection.ai.linkit.label": "找到人",
   "connection.ai.linkit.body": "发现彼此，建立联系，把协作带入对话。",
   "connection.ai.cybion.label": "分身协作",
   "connection.ai.cybion.body": "承载人的智能体分身，组织任务、工具与协作。",
-  "connection.ai.docs.label": "文档与上下文",
-  "connection.ai.docs.body":
-    "由 Cybion 在授权范围内取用个人文档、经验与长期上下文。",
+  "connection.ai.exe.label": "设备执行",
+  "connection.ai.exe.body":
+    "把签名调用投递到已授权的设备上执行，结果密封回传。",
   "connection.ai.normai.label": "智能供应",
   "connection.ai.normai.body":
     "为 Cybion 提供兼容的模型访问，并记录调用用量与费用。",
@@ -211,7 +220,7 @@ export const en: Record<CopyKey, string> = {
   "nav.skip": "Skip to content",
   "hero.eyebrow": "BUILT FOR INTELLIGENCE. CONNECTED BY VALUE.",
   "hero.description":
-    "Turn intelligence into action. Turn connection into value.\nEight independent products. More than one way to connect.",
+    "Turn intelligence into action. Turn connection into value.\nNine independent products. More than one way to connect.",
   "hero.cta": "Explore the ecosystem",
   "hero.secondary": "Our philosophy",
   "hero.coordinate": "DATA × INTELLIGENCE × CONNECTION × VALUE",
@@ -260,6 +269,15 @@ export const en: Record<CopyKey, string> = {
   "normai.f1": "Model access and provider management",
   "normai.f2": "App credentials and request auditing",
   "normai.f3": "USD billing and Midas settlement",
+  "exe.role": "CROSS-DEVICE EXECUTION",
+  "exe.title": "Devices, meet intelligence.",
+  "exe.description":
+    "Connect one MCP and act on every device you own: run shell commands, read images. Identity is just a key pair — the public key is the address.",
+  "exe.detail":
+    "eXe (Executable) links callers and devices. A call is signed by the caller and relayed as an envelope; a device runs it only when the caller is on its local trust list, then returns the result sealed to the same key. The relay moves envelopes it cannot read, and one machine can be both a device and a caller.",
+  "exe.f1": "Cross-device shell commands and image reads",
+  "exe.f2": "Ed25519 identity: the public key is the address",
+  "exe.f3": "Device-side trust list and sealed results",
   "docs.role": "YOUR DOCS AND CONTEXT",
   "docs.title": "Intelligence that knows you.",
   "docs.description":
@@ -344,7 +362,7 @@ export const en: Record<CopyKey, string> = {
   "connection.title": "A scenario is a starting point.",
   "connection.title2": "Not a fixed formula.",
   "connection.description":
-    "Eight products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
+    "Nine products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
   "connection.open": "Open combinations",
   "connection.ai": "Intelligent collaboration",
   "connection.fund": "Fund investing",
@@ -352,12 +370,12 @@ export const en: Record<CopyKey, string> = {
   "connection.open.description":
     "Start with your goal. Choose the data, context, intelligence, execution, communication, and settlement capabilities it needs. No product belongs to only one scenario or one arrangement.",
   "connection.open.caption":
-    "EIGHT INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
+    "NINE INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
   "connection.ai.title": "Find the people. Let their agents collaborate.",
   "connection.ai.description":
-    "Find people through Linkit and collaborate through their Cybion agents. Cybion draws on personal documents and context in Docs and model access through NormAI. NormAI settles payments through Midas.",
+    "Find people through Linkit and collaborate through their Cybion agents. Cybion executes on real devices through eXe and draws model access from NormAI. NormAI settles payments through Midas.",
   "connection.ai.resources":
-    "Cybion connects context and intelligence as the task requires",
+    "Cybion connects execution and intelligence as the task requires",
   "connection.ai.billing": "NormAI settles payments through Midas",
   "connection.ai.linkit.label": "FIND PEOPLE",
   "connection.ai.linkit.body":
@@ -365,9 +383,9 @@ export const en: Record<CopyKey, string> = {
   "connection.ai.cybion.label": "AGENT COLLABORATION",
   "connection.ai.cybion.body":
     "Host people’s agents and organize their tasks, tools, and collaboration.",
-  "connection.ai.docs.label": "DOCS AND CONTEXT",
-  "connection.ai.docs.body":
-    "Cybion draws on personal documents, experience, and long-term context within granted access.",
+  "connection.ai.exe.label": "DEVICE EXECUTION",
+  "connection.ai.exe.body":
+    "Deliver signed calls to authorized devices and return sealed results.",
   "connection.ai.normai.label": "INTELLIGENCE SUPPLY",
   "connection.ai.normai.body":
     "Provide compatible model access to Cybion, with per-request usage and cost records.",

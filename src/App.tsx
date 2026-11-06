@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { dictionaries, type CopyKey, type Locale } from "./copy";
 import {
+  featuredProducts,
   products,
   productViewKeys,
   productsForView,
@@ -382,7 +383,7 @@ function App() {
                 ELEMENT
               </span>
             </div>
-            {products.map((product) => (
+            {featuredProducts.map((product) => (
               <button
                 key={product.id}
                 className={`orbit-node node-${product.id}`}
@@ -421,7 +422,7 @@ function App() {
             <br />
             <span>INFINITE POSSIBILITIES.</span>
           </div>
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <button
               key={product.id}
               onClick={() => selectProduct(product)}

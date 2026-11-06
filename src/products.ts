@@ -3,11 +3,12 @@ export type ProductId =
   | "linkit"
   | "cybion"
   | "normai"
-  | "docs"
+  | "exe"
   | "firma"
   | "midas"
   | "exchange"
-  | "hit";
+  | "hit"
+  | "docs";
 export type ProductView = "ai" | "fund" | "shared";
 export type ProductFilter = "all" | ProductView;
 export const productViewKeys: Record<ProductView, CopyKey> = {
@@ -21,6 +22,11 @@ export type Product = {
   views: ProductView[];
   domain: string;
   accent: string;
+  /**
+   * Featured products appear in the hero ring, the product strip and the open
+   * network. Every product still has a card, a detail dialog and a footer link.
+   */
+  featured: boolean;
   role: CopyKey;
   title: CopyKey;
   description: CopyKey;
@@ -35,6 +41,7 @@ export const products: Product[] = [
     views: ["ai", "fund", "shared"],
     domain: "linkit.ntnl.io",
     accent: "#b9a0ff",
+    featured: true,
     role: "linkit.role",
     title: "linkit.title",
     description: "linkit.description",
@@ -47,6 +54,7 @@ export const products: Product[] = [
     views: ["ai", "fund"],
     domain: "cybion.ntnl.io",
     accent: "#c4f780",
+    featured: true,
     role: "cybion.role",
     title: "cybion.title",
     description: "cybion.description",
@@ -59,6 +67,7 @@ export const products: Product[] = [
     views: ["ai"],
     domain: "normai.ntnl.io",
     accent: "#89c8fa",
+    featured: true,
     role: "normai.role",
     title: "normai.title",
     description: "normai.description",
@@ -66,16 +75,17 @@ export const products: Product[] = [
     features: ["normai.f1", "normai.f2", "normai.f3"],
   },
   {
-    id: "docs",
-    name: "Docs",
+    id: "exe",
+    name: "eXe",
     views: ["ai"],
-    domain: "docs.ntnl.io",
-    accent: "#f1a7b7",
-    role: "docs.role",
-    title: "docs.title",
-    description: "docs.description",
-    detail: "docs.detail",
-    features: ["docs.f1", "docs.f2", "docs.f3"],
+    domain: "exe.ntnl.io",
+    accent: "#c9a8f5",
+    featured: true,
+    role: "exe.role",
+    title: "exe.title",
+    description: "exe.description",
+    detail: "exe.detail",
+    features: ["exe.f1", "exe.f2", "exe.f3"],
   },
   {
     id: "firma",
@@ -83,6 +93,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "firma.ntnl.io",
     accent: "#a8d6ef",
+    featured: true,
     role: "firma.role",
     title: "firma.title",
     description: "firma.description",
@@ -96,6 +107,7 @@ export const products: Product[] = [
     views: ["ai", "fund", "shared"],
     domain: "midas.ntnl.io",
     accent: "#e8cc8c",
+    featured: true,
     role: "midas.role",
     title: "midas.title",
     description: "midas.description",
@@ -108,6 +120,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "1ex.ntnl.io",
     accent: "#90d9c5",
+    featured: true,
     role: "exchange.role",
     title: "exchange.title",
     description: "exchange.description",
@@ -120,6 +133,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "hit.ntnl.io",
     accent: "#f5a383",
+    featured: true,
     role: "hit.role",
     title: "hit.title",
     description: "hit.description",
@@ -127,11 +141,24 @@ export const products: Product[] = [
     features: ["hit.f1", "hit.f2", "hit.f3"],
     note: "hit.risk",
   },
+  {
+    id: "docs",
+    name: "Docs",
+    views: ["ai"],
+    domain: "docs.ntnl.io",
+    accent: "#f1a7b7",
+    featured: false,
+    role: "docs.role",
+    title: "docs.title",
+    description: "docs.description",
+    detail: "docs.detail",
+    features: ["docs.f1", "docs.f2", "docs.f3"],
+  },
 ];
+export const featuredProducts = products.filter((product) => product.featured);
 export const productById = Object.fromEntries(
   products.map((product) => [product.id, product]),
 ) as Record<ProductId, Product>;
-
 export function productsForView(view: ProductFilter): Product[] {
   return view === "all"
     ? products

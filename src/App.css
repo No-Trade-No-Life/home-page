@@ -286,7 +286,7 @@
   right: 2%;
   top: 12%;
 }
-.node-docs {
+.node-exe {
   left: 0;
   top: 36%;
 }
@@ -627,6 +627,10 @@
 }
 .card-exchange {
   order: 3;
+}
+/* Docs is the ninth, ordinary entry: it follows the eight featured products. */
+.card-docs {
+  order: 4;
 }
 
 .philosophy-top {

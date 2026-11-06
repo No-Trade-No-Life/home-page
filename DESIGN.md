@@ -2,7 +2,7 @@
 
 ## Visual direction
 
-Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight floating product nodes invite exploration without presenting a mandatory order. The □ Linkit / △ Cybion / ○ NormAI / D Docs identities remain, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
+Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight featured product nodes float around the illustration without presenting a mandatory order; the ninth product, Docs, stays on the page as an ordinary card. The □ Linkit / △ Cybion / ○ NormAI / ✕ eXe identities remain, Docs uses a D glyph, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
 
 ## Firma logo
 
@@ -12,9 +12,9 @@ Firma's homepage mark is a **round hemispherical dome**, not a letter monogram. 
 
 ## Product model: overlapping views
 
-The eight products are Linkit, Cybion, NormAI, Docs, Firma (Firmament), Midas, 1Exchange, and HIT. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
+The nine products are Linkit, Cybion, NormAI, eXe, Firma (Firmament), Midas, 1Exchange, HIT, and Docs. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
 
-- **Intelligent collaboration / 智能协作:** Linkit, Cybion, Docs, NormAI, Midas.
+- **Intelligent collaboration / 智能协作:** Linkit, Cybion, NormAI, eXe, Midas, Docs.
 - **Fund investing / 基金投资:** Midas, Firma, Cybion, HIT, 1Exchange, Linkit.
 - **Shared capabilities / 跨场景能力:** Linkit and Midas.
 
@@ -22,11 +22,11 @@ Counts are derived from the product data. Linkit, Cybion, and Midas intentionall
 
 ## Scenario presentation
 
-The default **Open combinations** view shows all eight products in an unordered, nondirectional network. The two named scenarios are illustrative compositions, not the only possible arrangements or a claim of complete technical integration.
+The default **Open combinations** view shows the eight featured products in an unordered, nondirectional network. Docs keeps a board card, a detail dialog and a footer link, but does not appear in the hero ring, the product strip or the network: it is the ordinary, least prominent entry. The two named scenarios are illustrative compositions, not the only possible arrangements or a claim of complete technical integration.
 
 ### Intelligent collaboration
 
-Find people with Linkit, then collaborate through their Cybion agents. Cybion draws personal documents and context from Docs and obtains model access from NormAI; NormAI settles payments through Midas. The display branches at Cybion: Docs is not shown as a sequential caller of NormAI. The NormAI → Midas relationship is grouped explicitly.
+Find people with Linkit, then collaborate through their Cybion agents. Cybion executes on real devices through eXe and obtains model access from NormAI; NormAI settles payments through Midas. The display branches at Cybion: eXe is not shown as a sequential caller of NormAI. The NormAI → Midas relationship is grouped explicitly.
 
 ### Fund investing
 
@@ -60,7 +60,7 @@ The product dialog distinguishes available data reading/export/sync and administ
 - Scenario buttons expose their selected state. Every product node opens the same accessible product dialog.
 - The torus respects reduced motion and pause controls and stops offscreen or in a hidden tab.
 
-Regression tests cover both languages, all scenario views, overlapping filters, the exact user-specified relationships, all eight product dialogs/links, 320–1920px typography/overflow, hero-node collisions, and card/artwork separation.
+Regression tests cover both languages, all scenario views, overlapping filters, the exact user-specified relationships, all nine product dialogs/links, 320–1920px typography/overflow, hero-node collisions, and card/artwork separation.
 
 ## Complexity review
 

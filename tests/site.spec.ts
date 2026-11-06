@@ -4,12 +4,16 @@ const products = [
   "Linkit",
   "Cybion",
   "NormAI",
-  "Docs",
+  "eXe",
   "Firma",
   "Midas",
   "1Exchange",
   "HIT",
+  "Docs",
 ];
+// The hero ring, the product strip and the open network show the eight
+// featured products; Docs is the ninth, ordinary entry with a card only.
+const featured = products.filter((name) => name !== "Docs");
 async function resizeForLayout(page: Page, width: number, height = 1000) {
   await page.setViewportSize({ width, height });
   // INVARIANT: viewport metrics can change before Chrome has recomputed media
@@ -48,7 +52,7 @@ test("eight products, same-origin app assets, no browser errors", async ({
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "NO TRADE.NO LIFE.",
   );
-  await expect(page.locator(".product-card")).toHaveCount(8);
+  await expect(page.locator(".product-card")).toHaveCount(9);
   for (const name of products)
     await expect(
       page
@@ -76,8 +80,8 @@ test("scenario filters overlap and retain the shared products", async ({
   const cases = [
     {
       name: /智能协作/,
-      products: ["Linkit", "Cybion", "NormAI", "Docs", "Midas"],
-      count: "05",
+      products: ["Linkit", "Cybion", "NormAI", "eXe", "Midas", "Docs"],
+      count: "06",
     },
     {
       name: /基金投资/,
@@ -85,7 +89,7 @@ test("scenario filters overlap and retain the shared products", async ({
       count: "06",
     },
     { name: /跨场景能力/, products: ["Linkit", "Midas"], count: "02" },
-    { name: /全部产品/, products, count: "08" },
+    { name: /全部产品/, products, count: "09" },
   ];
   for (const item of cases) {
     const filter = page
@@ -133,7 +137,7 @@ test("all eight detail dialogs, correct external links, Escape, and focus return
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
-      /^https:\/\/(linkit|cybion|normai|docs|firma|midas|1ex|hit)\.ntnl\.io$/,
+      /^https:\/\/(linkit|cybion|normai|exe|firma|midas|1ex|hit|docs)\.ntnl\.io$/,
     );
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
     if (name === "HIT")
@@ -177,7 +181,7 @@ test("open combinations is the default, with all eight explorable products", asy
   await expect(page.locator(".shared-services .scenario-product")).toHaveCount(
     2,
   );
-  for (const name of products) {
+  for (const name of featured) {
     const trigger = page
       .locator(".network-grid")
       .getByRole("button", { name: `了解产品 ${name}`, exact: true });
@@ -261,7 +265,7 @@ test("intelligent collaboration branches at Cybion and settles NormAI through Mi
     "linkit",
     "cybion",
   ]);
-  expect(await productIds(".ai-context .scenario-product")).toEqual(["docs"]);
+  expect(await productIds(".ai-context .scenario-product")).toEqual(["exe"]);
   expect(await productIds(".ai-model-billing .scenario-product")).toEqual([
     "normai",
     "midas",
@@ -272,10 +276,10 @@ test("intelligent collaboration branches at Cybion and settles NormAI through Mi
   await expect(
     page.locator(".shared-grid .scenario-product-heading strong"),
   ).toHaveText(["Linkit", "Midas"]);
-  await expect(page.locator(".scenario-view")).toContainText("文档与上下文");
+  await expect(page.locator(".scenario-view")).toContainText("设备执行");
   await expect(page.locator("body")).not.toContainText("智能社群");
   await expect(page.locator("body")).not.toContainText("智能写作");
-  for (const name of ["Linkit", "Cybion", "Docs", "NormAI", "Midas"]) {
+  for (const name of ["Linkit", "Cybion", "eXe", "NormAI", "Midas"]) {
     await page
       .locator(".ai-scenario")
       .getByRole("button", { name: `了解产品 ${name}`, exact: true })
@@ -664,5 +668,5 @@ test("English scenario copy retains the same roles and shared capabilities", asy
     .locator(".filters")
     .getByRole("button", { name: /Intelligent collaboration/ })
     .click();
-  await expect(page.locator(".product-card")).toHaveCount(5);
+  await expect(page.locator(".product-card")).toHaveCount(6);
 });

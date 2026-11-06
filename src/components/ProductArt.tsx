@@ -52,6 +52,27 @@ export function ProductArt({ id }: { id: ProductId }) {
           <span className="art-label">MANY MODELS. ONE INTERFACE.</span>
         </div>
       )}
+      {id === "exe" && (
+        <div className="exe-sculpture">
+          <div className="exe-device">
+            <span className="exe-device-bar">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span className="exe-prompt">
+              › exe shell
+              <em className="exe-caret" />
+            </span>
+            <b />
+            <b className="short" />
+          </div>
+          <span className="exe-seal">SEALED</span>
+          <span className="art-label exe-art-label">
+            SIGNED IN · SEALED OUT
+          </span>
+        </div>
+      )}
       {id === "docs" && (
         <div className="docs-sculpture">
           {[0, 1, 2].map((i) => (

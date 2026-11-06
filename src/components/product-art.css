@@ -172,6 +172,78 @@
   text-align: center;
   transform: translateX(-50%);
 }
+.exe-sculpture {
+  position: relative;
+  width: 250px;
+  height: 140px;
+  margin: auto;
+  top: 26px;
+  left: -6px;
+}
+.exe-device {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 200px;
+  padding: 13px 16px 15px;
+  border: 1px solid #c9a8f53d;
+  border-radius: 8px;
+  background: linear-gradient(150deg, #191322, #100c16);
+  box-shadow: 0 14px 28px #0005;
+}
+.exe-device-bar {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 13px;
+}
+.exe-device-bar i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9a8f566;
+}
+.exe-prompt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  color: #c9a8f5;
+}
+.exe-caret {
+  display: block;
+  width: 6px;
+  height: 11px;
+  background: #c9a8f5;
+}
+.exe-device b {
+  display: block;
+  width: 76%;
+  height: 2px;
+  margin-top: 10px;
+  background: #c9a8f52b;
+}
+.exe-device b.short {
+  width: 48%;
+}
+.exe-seal {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0.06em;
+  color: #c9a8f5;
+  border: 1px solid #c9a8f544;
+  border-radius: 4px;
+  padding: 4px 7px;
+  background: #14101a;
+}
+.exe-sculpture .exe-art-label {
+  left: 6px;
+  bottom: 2px;
+}
 .docs-sculpture {
   position: relative;
   width: 230px;
