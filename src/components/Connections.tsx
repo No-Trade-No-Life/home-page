@@ -36,7 +36,7 @@ const views: {
 const networkOrder: ProductId[] = [
   "linkit",
   "firma",
-  "ctx",
+  "docs",
   "hit",
   "midas",
   "normai",
@@ -174,11 +174,11 @@ function IntelligentScenario({ t, onSelect }: ScenarioProps) {
           <ArrowDown size={22} aria-hidden="true" />
           {t("connection.ai.resources")}
         </p>
-        <div className="ai-context" data-relation="cybion-ctx">
+        <div className="ai-context" data-relation="cybion-docs">
           <ScenarioProduct
-            id="ctx"
-            label="connection.ai.ctx.label"
-            description="connection.ai.ctx.body"
+            id="docs"
+            label="connection.ai.docs.label"
+            description="connection.ai.docs.body"
             t={t}
             onSelect={onSelect}
           />

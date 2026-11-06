@@ -3,7 +3,7 @@ export type ProductId =
   | "linkit"
   | "cybion"
   | "normai"
-  | "ctx"
+  | "docs"
   | "firma"
   | "midas"
   | "exchange"
@@ -66,16 +66,16 @@ export const products: Product[] = [
     features: ["normai.f1", "normai.f2", "normai.f3"],
   },
   {
-    id: "ctx",
-    name: "CTX",
+    id: "docs",
+    name: "Docs",
     views: ["ai"],
-    domain: "ctx.ntnl.io",
+    domain: "docs.ntnl.io",
     accent: "#f1a7b7",
-    role: "ctx.role",
-    title: "ctx.title",
-    description: "ctx.description",
-    detail: "ctx.detail",
-    features: ["ctx.f1", "ctx.f2", "ctx.f3"],
+    role: "docs.role",
+    title: "docs.title",
+    description: "docs.description",
+    detail: "docs.detail",
+    features: ["docs.f1", "docs.f2", "docs.f3"],
   },
   {
     id: "firma",

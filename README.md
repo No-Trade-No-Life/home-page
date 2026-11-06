@@ -64,6 +64,6 @@ NormAI provides unified model access, usage auditing, and USD billing. Midas pro
 
 Firma (Firmament) joins the matrix as a Single Truth Publisher: shared datasets, a common manifest, and authorized local subsets. Its detail dialog separately identifies what is available now and what remains planned.
 
-The site defaults to an open, nondirectional network. Intelligent collaboration connects Linkit → Cybion, branches to CTX and NormAI, and shows NormAI → Midas settlement. The fund-investing example is Midas → Firma → Cybion → HIT → 1Exchange → Linkit. Linkit and Midas are also visible as shared capabilities in every view. These are example compositions, not exclusive groups, automatic product integrations, or an investment offer. See `DESIGN.md` for role boundaries and the complexity review.
+The site defaults to an open, nondirectional network. Intelligent collaboration connects Linkit → Cybion, branches to Docs and NormAI, and shows NormAI → Midas settlement. The fund-investing example is Midas → Firma → Cybion → HIT → 1Exchange → Linkit. Linkit and Midas are also visible as shared capabilities in every view. These are example compositions, not exclusive groups, automatic product integrations, or an investment offer. See `DESIGN.md` for role boundaries and the complexity review.
 
 The application build has no telemetry. The existing Cloudflare edge can inject its performance beacon into browser responses; live-site verification must distinguish that host behavior from application asset requests. This deployment does not change Cloudflare settings.

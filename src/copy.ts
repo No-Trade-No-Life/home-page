@@ -58,15 +58,15 @@ export const zh = {
   "normai.f1": "模型访问与提供商管理",
   "normai.f2": "应用级凭据与调用审计",
   "normai.f3": "统一美元计费与 Midas 结算",
-  "ctx.role": "属于你的上下文",
-  "ctx.title": "让智能，真正理解你。",
-  "ctx.description":
-    "记录思考，组织知识，保留独有的判断。让你的上下文，成为智能的起点。",
-  "ctx.detail":
-    "CTX 是个人上下文的容器。以云文档与内容托管为起点，组织真正属于你的经验、知识和长期思考，为智能协作提供有深度的背景。",
-  "ctx.f1": "云文档与内容托管",
-  "ctx.f2": "个人知识与上下文组织",
-  "ctx.f3": "面向 Agent 的上下文连接",
+  "docs.role": "你的文档与上下文",
+  "docs.title": "让智能，真正理解你。",
+  "docs.description":
+    "记录思考，组织知识，保留独有的判断。让你的文档与上下文，成为智能的起点。",
+  "docs.detail":
+    "Docs 是个人文档与上下文的容器。以云文档、版本历史与 Markdown 发布为起点，组织真正属于你的经验、知识和长期思考，为智能协作提供有深度的背景。",
+  "docs.f1": "云文档与内容发布",
+  "docs.f2": "个人知识与上下文组织",
+  "docs.f3": "面向 Agent 的上下文连接",
   "midas.role": "支付与结算",
   "midas.title": "让价值，自由流动。",
   "midas.description":
@@ -147,16 +147,16 @@ export const zh = {
   "connection.open.caption": "八个独立产品 · 按目标自由组合",
   "connection.ai.title": "先找到人，再让分身协作。",
   "connection.ai.description":
-    "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 从 CTX 取用个人上下文，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
+    "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 从 Docs 取用个人文档与上下文，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
   "connection.ai.resources": "Cybion 按任务连接上下文与智能供应",
   "connection.ai.billing": "NormAI 通过 Midas 支付结算",
   "connection.ai.linkit.label": "找到人",
   "connection.ai.linkit.body": "发现彼此，建立联系，把协作带入对话。",
   "connection.ai.cybion.label": "分身协作",
   "connection.ai.cybion.body": "承载人的智能体分身，组织任务、工具与协作。",
-  "connection.ai.ctx.label": "个人上下文",
-  "connection.ai.ctx.body":
-    "由 Cybion 在授权范围内取用个人知识、经验与长期上下文。",
+  "connection.ai.docs.label": "文档与上下文",
+  "connection.ai.docs.body":
+    "由 Cybion 在授权范围内取用个人文档、经验与长期上下文。",
   "connection.ai.normai.label": "智能供应",
   "connection.ai.normai.body":
     "为 Cybion 提供兼容的模型访问，并记录调用用量与费用。",
@@ -260,15 +260,15 @@ export const en: Record<CopyKey, string> = {
   "normai.f1": "Model access and provider management",
   "normai.f2": "App credentials and request auditing",
   "normai.f3": "USD billing and Midas settlement",
-  "ctx.role": "YOUR OWN CONTEXT",
-  "ctx.title": "Intelligence that knows you.",
-  "ctx.description":
-    "Capture your thinking, organize knowledge, and preserve your judgment. Make your context the starting point.",
-  "ctx.detail":
-    "CTX is a container for personal context. Starting with cloud documents and content publishing, it organizes your experience, knowledge, and long-term thinking as a foundation for intelligent collaboration.",
-  "ctx.f1": "Cloud documents and publishing",
-  "ctx.f2": "Personal knowledge and context",
-  "ctx.f3": "Context connections for agents",
+  "docs.role": "YOUR DOCS AND CONTEXT",
+  "docs.title": "Intelligence that knows you.",
+  "docs.description":
+    "Capture your thinking, organize knowledge, and preserve your judgment. Make your documents and context the starting point.",
+  "docs.detail":
+    "Docs is a container for personal documents and context. Starting with cloud documents, content publishing, and version history, it organizes your experience, knowledge, and long-term thinking as a foundation for intelligent collaboration.",
+  "docs.f1": "Cloud documents and publishing",
+  "docs.f2": "Personal knowledge and context",
+  "docs.f3": "Context connections for agents",
   "midas.role": "PAYMENTS & SETTLEMENT",
   "midas.title": "Value, in motion.",
   "midas.description":
@@ -355,7 +355,7 @@ export const en: Record<CopyKey, string> = {
     "EIGHT INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
   "connection.ai.title": "Find the people. Let their agents collaborate.",
   "connection.ai.description":
-    "Find people through Linkit and collaborate through their Cybion agents. Cybion draws on personal context in CTX and model access through NormAI. NormAI settles payments through Midas.",
+    "Find people through Linkit and collaborate through their Cybion agents. Cybion draws on personal documents and context in Docs and model access through NormAI. NormAI settles payments through Midas.",
   "connection.ai.resources":
     "Cybion connects context and intelligence as the task requires",
   "connection.ai.billing": "NormAI settles payments through Midas",
@@ -365,9 +365,9 @@ export const en: Record<CopyKey, string> = {
   "connection.ai.cybion.label": "AGENT COLLABORATION",
   "connection.ai.cybion.body":
     "Host people’s agents and organize their tasks, tools, and collaboration.",
-  "connection.ai.ctx.label": "PERSONAL CONTEXT",
-  "connection.ai.ctx.body":
-    "Cybion draws on personal knowledge, experience, and long-term context within granted access.",
+  "connection.ai.docs.label": "DOCS AND CONTEXT",
+  "connection.ai.docs.body":
+    "Cybion draws on personal documents, experience, and long-term context within granted access.",
   "connection.ai.normai.label": "INTELLIGENCE SUPPLY",
   "connection.ai.normai.body":
     "Provide compatible model access to Cybion, with per-request usage and cost records.",

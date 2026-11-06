@@ -4,7 +4,7 @@ const products = [
   "Linkit",
   "Cybion",
   "NormAI",
-  "CTX",
+  "Docs",
   "Firma",
   "Midas",
   "1Exchange",
@@ -76,7 +76,7 @@ test("scenario filters overlap and retain the shared products", async ({
   const cases = [
     {
       name: /智能协作/,
-      products: ["Linkit", "Cybion", "NormAI", "CTX", "Midas"],
+      products: ["Linkit", "Cybion", "NormAI", "Docs", "Midas"],
       count: "05",
     },
     {
@@ -133,7 +133,7 @@ test("all eight detail dialogs, correct external links, Escape, and focus return
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
-      /^https:\/\/(linkit|cybion|normai|ctx|firma|midas|1ex|hit)\.ntnl\.io$/,
+      /^https:\/\/(linkit|cybion|normai|docs|firma|midas|1ex|hit)\.ntnl\.io$/,
     );
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
     if (name === "HIT")
@@ -261,7 +261,7 @@ test("intelligent collaboration branches at Cybion and settles NormAI through Mi
     "linkit",
     "cybion",
   ]);
-  expect(await productIds(".ai-context .scenario-product")).toEqual(["ctx"]);
+  expect(await productIds(".ai-context .scenario-product")).toEqual(["docs"]);
   expect(await productIds(".ai-model-billing .scenario-product")).toEqual([
     "normai",
     "midas",
@@ -272,10 +272,10 @@ test("intelligent collaboration branches at Cybion and settles NormAI through Mi
   await expect(
     page.locator(".shared-grid .scenario-product-heading strong"),
   ).toHaveText(["Linkit", "Midas"]);
-  await expect(page.locator(".scenario-view")).toContainText("个人上下文");
+  await expect(page.locator(".scenario-view")).toContainText("文档与上下文");
   await expect(page.locator("body")).not.toContainText("智能社群");
   await expect(page.locator("body")).not.toContainText("智能写作");
-  for (const name of ["Linkit", "Cybion", "CTX", "NormAI", "Midas"]) {
+  for (const name of ["Linkit", "Cybion", "Docs", "NormAI", "Midas"]) {
     await page
       .locator(".ai-scenario")
       .getByRole("button", { name: `了解产品 ${name}`, exact: true })
