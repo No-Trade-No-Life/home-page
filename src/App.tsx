@@ -8,14 +8,17 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
+  Cloud,
   Globe2,
   Menu,
   Pause,
   Play,
+  Server,
   X,
 } from "lucide-react";
 import { dictionaries, type CopyKey, type Locale } from "./copy";
 import {
+  architectureKeys,
   featuredProducts,
   products,
   productViewKeys,
@@ -134,6 +137,20 @@ function ProductDialog({
               <div className="dialog-heading">
                 <ProductMark id={product.id} />
                 <Dialog.Title>{product.name}</Dialog.Title>
+              </div>
+              <div className="dialog-architecture">
+                <span className="mono">{t("products.architecture")}</span>
+                <span
+                  className="architecture-tag"
+                  data-architecture={product.architecture}
+                >
+                  {product.architecture === "cf-workers" ? (
+                    <Cloud size={15} />
+                  ) : (
+                    <Server size={15} />
+                  )}
+                  {t(architectureKeys[product.architecture])}
+                </span>
               </div>
               <h3>{t(product.title)}</h3>
               <Dialog.Description id="product-description">

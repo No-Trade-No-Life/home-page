@@ -11,6 +11,16 @@ export type ProductId =
   | "docs";
 export type ProductView = "ai" | "fund" | "shared";
 export type ProductFilter = "all" | ProductView;
+/**
+ * The runtime a product is served from today. Two architectures exist across
+ * the ecosystem: a long-running Rust server process, and a Cloudflare Workers
+ * (serverless) deployment on the edge.
+ */
+export type ProductArchitecture = "rust-server" | "cf-workers";
+export const architectureKeys: Record<ProductArchitecture, CopyKey> = {
+  "rust-server": "architecture.rustServer",
+  "cf-workers": "architecture.cfWorkers",
+};
 export const productViewKeys: Record<ProductView, CopyKey> = {
   ai: "products.ai",
   fund: "products.fund",
@@ -22,6 +32,7 @@ export type Product = {
   views: ProductView[];
   domain: string;
   accent: string;
+  architecture: ProductArchitecture;
   /**
    * Featured products appear in the hero ring, the product strip and the open
    * network. Every product still has a card, a detail dialog and a footer link.
@@ -41,6 +52,7 @@ export const products: Product[] = [
     views: ["ai", "fund", "shared"],
     domain: "linkit.ntnl.io",
     accent: "#b9a0ff",
+    architecture: "rust-server",
     featured: true,
     role: "linkit.role",
     title: "linkit.title",
@@ -54,6 +66,7 @@ export const products: Product[] = [
     views: ["ai", "fund"],
     domain: "cybion.ntnl.io",
     accent: "#c4f780",
+    architecture: "rust-server",
     featured: true,
     role: "cybion.role",
     title: "cybion.title",
@@ -67,6 +80,7 @@ export const products: Product[] = [
     views: ["ai"],
     domain: "normai.ntnl.io",
     accent: "#89c8fa",
+    architecture: "rust-server",
     featured: true,
     role: "normai.role",
     title: "normai.title",
@@ -80,6 +94,7 @@ export const products: Product[] = [
     views: ["ai"],
     domain: "exe.ntnl.io",
     accent: "#c9a8f5",
+    architecture: "cf-workers",
     featured: true,
     role: "exe.role",
     title: "exe.title",
@@ -93,6 +108,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "firma.ntnl.io",
     accent: "#a8d6ef",
+    architecture: "rust-server",
     featured: true,
     role: "firma.role",
     title: "firma.title",
@@ -107,6 +123,7 @@ export const products: Product[] = [
     views: ["ai", "fund", "shared"],
     domain: "midas.ntnl.io",
     accent: "#e8cc8c",
+    architecture: "rust-server",
     featured: true,
     role: "midas.role",
     title: "midas.title",
@@ -120,6 +137,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "1ex.ntnl.io",
     accent: "#90d9c5",
+    architecture: "rust-server",
     featured: true,
     role: "exchange.role",
     title: "exchange.title",
@@ -133,6 +151,7 @@ export const products: Product[] = [
     views: ["fund"],
     domain: "hit.ntnl.io",
     accent: "#f5a383",
+    architecture: "rust-server",
     featured: true,
     role: "hit.role",
     title: "hit.title",
@@ -147,6 +166,7 @@ export const products: Product[] = [
     views: ["ai"],
     domain: "docs.ntnl.io",
     accent: "#f1a7b7",
+    architecture: "rust-server",
     featured: false,
     role: "docs.role",
     title: "docs.title",

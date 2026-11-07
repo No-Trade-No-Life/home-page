@@ -31,6 +31,9 @@ export const zh = {
   "products.count": "个产品",
   "products.detail": "产品介绍",
   "products.capabilities": "核心能力",
+  "products.architecture": "软件架构",
+  "architecture.rustServer": "Rust Server",
+  "architecture.cfWorkers": "CF Workers · Serverless",
   "linkit.role": "人与人的连接",
   "linkit.title": "连接，从对话开始。",
   "linkit.description":
@@ -242,6 +245,9 @@ export const en: Record<CopyKey, string> = {
   "products.count": "products",
   "products.detail": "Product overview",
   "products.capabilities": "CAPABILITIES",
+  "products.architecture": "ARCHITECTURE",
+  "architecture.rustServer": "Rust Server",
+  "architecture.cfWorkers": "CF Workers · Serverless",
   "linkit.role": "HUMAN CONNECTION",
   "linkit.title": "It starts with a conversation.",
   "linkit.description":

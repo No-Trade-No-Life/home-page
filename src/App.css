@@ -904,7 +904,42 @@
   display: flex;
   gap: 20px;
   align-items: center;
-  margin: 36px 0 28px;
+  margin: 36px 0 18px;
+}
+.dialog-architecture {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 28px;
+  font-size: var(--text-caption);
+}
+.dialog-architecture > .mono {
+  color: #b3c3a6;
+  letter-spacing: 0.08em;
+}
+.architecture-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 12px;
+  border: 1px solid color-mix(in srgb, var(--arch-color) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--arch-color) 10%, transparent);
+  color: color-mix(in srgb, var(--arch-color) 82%, #eef0e9);
+  font-size: var(--text-caption);
+  line-height: 1.7;
+  white-space: nowrap;
+}
+.architecture-tag[data-architecture="rust-server"] {
+  --arch-color: #e3a17c;
+}
+.architecture-tag[data-architecture="cf-workers"] {
+  --arch-color: #89c8fa;
+}
+.architecture-tag svg {
+  width: 15px;
+  height: 15px;
 }
 .dialog-heading > .product-mark {
   width: 48px;

@@ -14,6 +14,19 @@ const products = [
 // The hero ring, the product strip and the open network show the eight
 // featured products; Docs is the ninth, ordinary entry with a card only.
 const featured = products.filter((name) => name !== "Docs");
+// The runtime each product is served from today. eXe is the only product whose
+// relay runs on Cloudflare Workers; everything else is a Rust server process.
+const architectures: Record<string, string> = {
+  Linkit: "Rust Server",
+  Cybion: "Rust Server",
+  NormAI: "Rust Server",
+  eXe: "CF Workers · Serverless",
+  Firma: "Rust Server",
+  Midas: "Rust Server",
+  "1Exchange": "Rust Server",
+  HIT: "Rust Server",
+  Docs: "Rust Server",
+};
 async function resizeForLayout(page: Page, width: number, height = 1000) {
   await page.setViewportSize({ width, height });
   // INVARIANT: viewport metrics can change before Chrome has recomputed media
@@ -134,6 +147,13 @@ test("all eight detail dialogs, correct external links, Escape, and focus return
     await expect(
       dialog.getByRole("heading", { name, exact: true }),
     ).toBeVisible();
+    await expect(dialog.locator(".dialog-architecture")).toContainText(
+      "软件架构",
+    );
+    await expect(dialog.locator(".architecture-tag")).toHaveText(
+      architectures[name],
+      { useInnerText: true },
+    );
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
