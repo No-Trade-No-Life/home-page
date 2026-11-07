@@ -31,7 +31,7 @@ Screenshots and reports are ignored by Git. Automated accessibility tests are no
 ## Structure
 
 - `src/App.tsx`: page composition and interaction state
-- `src/products.ts`: public product names, categories, and destinations
+- `src/products.ts`: public product names, categories, architectures, and destinations
 - `src/copy.ts`: statically checked Chinese and English dictionaries
 - `src/components/Orbit.tsx`: procedural Canvas torus
 - `src/components/ProductArt.tsx`: original product-specific SVG/CSS artwork
