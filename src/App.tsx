@@ -568,7 +568,7 @@ function App() {
           <div className="footer-links">
             <span className="mono">{t("footer.products")}</span>
             <div>
-              {products.slice(0, 4).map((product) => (
+              {products.slice(0, 5).map((product) => (
                 <a
                   key={product.id}
                   href={`https://${product.domain}`}
@@ -584,7 +584,7 @@ function App() {
           <div className="footer-links">
             <span className="mono">{t("footer.products.more")}</span>
             <div>
-              {products.slice(4).map((product) => (
+              {products.slice(5).map((product) => (
                 <a
                   key={product.id}
                   href={`https://${product.domain}`}

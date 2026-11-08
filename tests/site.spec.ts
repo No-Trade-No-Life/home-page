@@ -10,12 +10,17 @@ const products = [
   "1Exchange",
   "HIT",
   "Docs",
+  "Tickets",
+  "Meeting",
 ];
 // The hero ring, the product strip and the open network show the eight
-// featured products; Docs is the ninth, ordinary entry with a card only.
-const featured = products.filter((name) => name !== "Docs");
-// The runtime each product is served from today. eXe is the only product whose
-// relay runs on Cloudflare Workers; everything else is a Rust server process.
+// featured products; Docs, Tickets, and Meeting are ordinary entries with
+// their own cards and dialogs.
+const featured = products.filter(
+  (name) => !["Docs", "Tickets", "Meeting"].includes(name),
+);
+// The runtime each product is served from today. eXe, Docs, and Meeting run on
+// Cloudflare Workers; everything else is a Rust server process.
 const architectures: Record<string, string> = {
   Linkit: "Rust Server",
   Cybion: "Rust Server",
@@ -25,7 +30,9 @@ const architectures: Record<string, string> = {
   Midas: "Rust Server",
   "1Exchange": "Rust Server",
   HIT: "Rust Server",
-  Docs: "Rust Server",
+  Docs: "CF Workers · Serverless",
+  Tickets: "Rust Server",
+  Meeting: "CF Workers · Serverless",
 };
 async function resizeForLayout(page: Page, width: number, height = 1000) {
   await page.setViewportSize({ width, height });
@@ -50,7 +57,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
 });
-test("eight products, same-origin app assets, no browser errors", async ({
+test("eleven products, same-origin app assets, no browser errors", async ({
   page,
   baseURL,
 }) => {
@@ -65,7 +72,7 @@ test("eight products, same-origin app assets, no browser errors", async ({
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "NO TRADE.NO LIFE.",
   );
-  await expect(page.locator(".product-card")).toHaveCount(9);
+  await expect(page.locator(".product-card")).toHaveCount(11);
   for (const name of products)
     await expect(
       page
@@ -93,8 +100,17 @@ test("scenario filters overlap and retain the shared products", async ({
   const cases = [
     {
       name: /智能协作/,
-      products: ["Linkit", "Cybion", "NormAI", "eXe", "Midas", "Docs"],
-      count: "06",
+      products: [
+        "Linkit",
+        "Cybion",
+        "NormAI",
+        "eXe",
+        "Midas",
+        "Docs",
+        "Tickets",
+        "Meeting",
+      ],
+      count: "08",
     },
     {
       name: /基金投资/,
@@ -102,7 +118,7 @@ test("scenario filters overlap and retain the shared products", async ({
       count: "06",
     },
     { name: /跨场景能力/, products: ["Linkit", "Midas"], count: "02" },
-    { name: /全部产品/, products, count: "09" },
+    { name: /全部产品/, products, count: "11" },
   ];
   for (const item of cases) {
     const filter = page
@@ -134,7 +150,7 @@ test("Firma and HIT share one row in the two-column grid", async ({
     expect(firma!.x + firma!.width).toBeLessThanOrEqual(hit!.x + 1);
   }
 });
-test("all eight detail dialogs, correct external links, Escape, and focus return", async ({
+test("all eleven detail dialogs, correct external links, Escape, and focus return", async ({
   page,
 }) => {
   for (const name of products) {
@@ -157,7 +173,7 @@ test("all eight detail dialogs, correct external links, Escape, and focus return
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
-      /^https:\/\/(linkit|cybion|normai|exe|firma|midas|1ex|hit|docs)\.ntnl\.io$/,
+      /^https:\/\/(linkit|cybion|normai|exe|firma|midas|1ex|hit|docs|tickets|meeting)\.ntnl\.io$/,
     );
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
     if (name === "HIT")
@@ -688,5 +704,5 @@ test("English scenario copy retains the same roles and shared capabilities", asy
     .locator(".filters")
     .getByRole("button", { name: /Intelligent collaboration/ })
     .click();
-  await expect(page.locator(".product-card")).toHaveCount(6);
+  await expect(page.locator(".product-card")).toHaveCount(8);
 });

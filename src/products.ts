@@ -8,7 +8,9 @@ export type ProductId =
   | "midas"
   | "exchange"
   | "hit"
-  | "docs";
+  | "docs"
+  | "tickets"
+  | "meeting";
 export type ProductView = "ai" | "fund" | "shared";
 export type ProductFilter = "all" | ProductView;
 /**
@@ -166,13 +168,41 @@ export const products: Product[] = [
     views: ["ai"],
     domain: "docs.ntnl.io",
     accent: "#f1a7b7",
-    architecture: "rust-server",
+    architecture: "cf-workers",
     featured: false,
     role: "docs.role",
     title: "docs.title",
     description: "docs.description",
     detail: "docs.detail",
     features: ["docs.f1", "docs.f2", "docs.f3"],
+  },
+  {
+    id: "tickets",
+    name: "Tickets",
+    views: ["ai"],
+    domain: "tickets.ntnl.io",
+    accent: "#f7c873",
+    architecture: "rust-server",
+    featured: false,
+    role: "tickets.role",
+    title: "tickets.title",
+    description: "tickets.description",
+    detail: "tickets.detail",
+    features: ["tickets.f1", "tickets.f2", "tickets.f3"],
+  },
+  {
+    id: "meeting",
+    name: "Meeting",
+    views: ["ai"],
+    domain: "meeting.ntnl.io",
+    accent: "#9ad7f5",
+    architecture: "cf-workers",
+    featured: false,
+    role: "meeting.role",
+    title: "meeting.title",
+    description: "meeting.description",
+    detail: "meeting.detail",
+    features: ["meeting.f1", "meeting.f2", "meeting.f3"],
   },
 ];
 export const featuredProducts = products.filter((product) => product.featured);

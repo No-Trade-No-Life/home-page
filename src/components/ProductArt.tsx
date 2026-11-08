@@ -152,6 +152,53 @@ export function ProductArt({ id }: { id: ProductId }) {
           </svg>
         </div>
       )}
+      {id === "tickets" && (
+        <div className="tickets-sculpture">
+          <div className="ticket-card">
+            <div className="ticket-half">
+              <span className="ticket-mono">REPORTER</span>
+              <b />
+              <b />
+              <b className="short" />
+            </div>
+            <div className="ticket-perf">
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+            <div className="ticket-half resolver">
+              <span className="ticket-mono">RESOLVER</span>
+              <span className="ticket-check">✓</span>
+              <span className="ticket-check">✓</span>
+            </div>
+          </div>
+          <span className="art-label">TWO AGENTS · ONE TICKET</span>
+        </div>
+      )}
+      {id === "meeting" && (
+        <div className="meeting-sculpture">
+          <div className="meeting-tile main">
+            <span className="meeting-dot" />
+            <span className="meeting-name">01</span>
+            <i />
+            <i />
+          </div>
+          <div className="meeting-tile side">
+            <span className="meeting-name">02</span>
+            <i />
+          </div>
+          <div className="meeting-wave">
+            {[12, 26, 18, 34, 22, 40, 16, 28, 20, 32, 14, 24].map(
+              (height, i) => (
+                <i key={i} style={{ height }} />
+              ),
+            )}
+          </div>
+          <span className="art-label">VOICE → TEXT → SUMMARY</span>
+        </div>
+      )}
     </div>
   );
 }
