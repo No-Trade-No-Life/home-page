@@ -10,7 +10,8 @@ export type ProductId =
   | "hit"
   | "docs"
   | "tickets"
-  | "meeting";
+  | "meeting"
+  | "autolabs";
 export type ProductView = "ai" | "fund" | "shared";
 export type ProductFilter = "all" | ProductView;
 /**
@@ -203,6 +204,20 @@ export const products: Product[] = [
     description: "meeting.description",
     detail: "meeting.detail",
     features: ["meeting.f1", "meeting.f2", "meeting.f3"],
+  },
+  {
+    id: "autolabs",
+    name: "AutoLabs",
+    views: ["ai"],
+    domain: "autolabs.ntnl.io",
+    accent: "#8ee6d8",
+    architecture: "cf-workers",
+    featured: false,
+    role: "autolabs.role",
+    title: "autolabs.title",
+    description: "autolabs.description",
+    detail: "autolabs.detail",
+    features: ["autolabs.f1", "autolabs.f2", "autolabs.f3"],
   },
 ];
 export const featuredProducts = products.filter((product) => product.featured);

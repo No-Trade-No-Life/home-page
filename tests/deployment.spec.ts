@@ -29,7 +29,7 @@ test("production metadata uses the www hostname", async ({ page, request }) => {
   );
   await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
     "content",
-    /Eleven independent products/,
+    /Twelve independent products/,
   );
   const social = await request.get("/social-card.png");
   expect(social.ok()).toBe(true);
@@ -97,5 +97,5 @@ test("custom 404 offers a readable route back to the homepage", async ({
     ),
   ).toBe(true);
   await page.getByRole("link", { name: "返回官网 / Back to NTNL" }).click();
-  await expect(page.locator(".product-card")).toHaveCount(11);
+  await expect(page.locator(".product-card")).toHaveCount(12);
 });

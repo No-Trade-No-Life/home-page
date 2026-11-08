@@ -573,3 +573,76 @@
   right: 0;
   bottom: 0;
 }
+
+.autolabs-sculpture {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  margin: auto;
+  top: 8px;
+}
+.lab-card {
+  position: absolute;
+  width: 124px;
+  height: 62px;
+  padding: 12px 14px;
+  border: 1px solid #8ee6d845;
+  border-radius: 7px;
+  background: linear-gradient(140deg, #132221, #0e1717);
+  box-shadow: 0 12px 26px #0004;
+}
+.lab-a {
+  top: 92px;
+  left: 6px;
+  opacity: 0.55;
+}
+.lab-b {
+  top: 54px;
+  left: 82px;
+  opacity: 0.78;
+}
+.lab-c {
+  top: 16px;
+  left: 160px;
+}
+.lab-card span {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0.02em;
+  color: #8ee6d8;
+}
+.lab-card b {
+  display: block;
+  width: 70%;
+  height: 2px;
+  margin-top: 8px;
+  background: #8ee6d82e;
+}
+.lab-card b + b {
+  width: 48%;
+}
+.lab-card em {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1;
+  color: #8ee6d8;
+}
+.sota-badge {
+  position: absolute;
+  top: 2px;
+  left: 236px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: #8ee6d8;
+  color: #0d1615;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0.06em;
+}
+.autolabs-sculpture .art-label {
+  left: 6px;
+  bottom: 0;
+}

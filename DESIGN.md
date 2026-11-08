@@ -2,7 +2,7 @@
 
 ## Visual direction
 
-Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight featured product nodes float around the illustration without presenting a mandatory order; Docs, Tickets, and Meeting stay on the page as ordinary cards. The □ Linkit / △ Cybion / ○ NormAI / ✕ eXe identities remain, Docs uses a D glyph, Tickets uses a ticket glyph, Meeting uses a camera glyph, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
+Graphite, warm off-white, and acid-lime highlights; large editorial typography and a procedural silver/green torus. Eight featured product nodes float around the illustration without presenting a mandatory order; Docs, Tickets, Meeting, and AutoLabs stay on the page as ordinary cards. The □ Linkit / △ Cybion / ○ NormAI / ✕ eXe identities remain, Docs uses a D glyph, Tickets uses a ticket glyph, Meeting uses a camera glyph, AutoLabs uses a flask glyph, and Firma uses a round hemispherical dome mark. Original CSS/SVG artwork stays independent of an image service.
 
 ## Firma logo
 
@@ -12,9 +12,9 @@ Firma's homepage mark is a **round hemispherical dome**, not a letter monogram. 
 
 ## Product model: overlapping views
 
-The eleven products are Linkit, Cybion, NormAI, eXe, Firma (Firmament), Midas, 1Exchange, HIT, Docs, Tickets, and Meeting. Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
+The twelve products are Linkit, Cybion, NormAI, eXe, Firma (Firmament), Midas, 1Exchange, HIT, Docs, Tickets, Meeting, and AutoLabs (AI for Science automated experiments, integrated with Cybion). Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
 
-- **Intelligent collaboration / 智能协作:** Linkit, Cybion, NormAI, eXe, Midas, Docs, Tickets, Meeting.
+- **Intelligent collaboration / 智能协作:** Linkit, Cybion, NormAI, eXe, Midas, Docs, Tickets, Meeting, AutoLabs.
 - **Fund investing / 基金投资:** Midas, Firma, Cybion, HIT, 1Exchange, Linkit.
 - **Shared capabilities / 跨场景能力:** Linkit and Midas.
 
@@ -22,7 +22,7 @@ Counts are derived from the product data. Linkit, Cybion, and Midas intentionall
 
 ## Scenario presentation
 
-The default **Open combinations** view shows the eight featured products in an unordered, nondirectional network. Docs, Tickets, and Meeting keep board cards, detail dialogs, and footer links, but do not appear in the hero ring, the product strip, or the network: they are the ordinary, least prominent entries. The two named scenarios are illustrative compositions, not the only possible arrangements or a claim of complete technical integration.
+The default **Open combinations** view shows the eight featured products in an unordered, nondirectional network. Docs, Tickets, Meeting, and AutoLabs keep board cards, detail dialogs, and footer links, but do not appear in the hero ring, the product strip, or the network: they are the ordinary, least prominent entries. The two named scenarios are illustrative compositions, not the only possible arrangements or a claim of complete technical integration.
 
 ### Intelligent collaboration
 
@@ -60,7 +60,7 @@ The product dialog distinguishes available data reading/export/sync and administ
 - Scenario buttons expose their selected state. Every product node opens the same accessible product dialog.
 - The torus respects reduced motion and pause controls and stops offscreen or in a hidden tab.
 
-Regression tests cover both languages, all scenario views, overlapping filters, the exact user-specified relationships, all eleven product dialogs/links, 320–1920px typography/overflow, hero-node collisions, and card/artwork separation.
+Regression tests cover both languages, all scenario views, overlapping filters, the exact user-specified relationships, all twelve product dialogs/links, 320–1920px typography/overflow, hero-node collisions, and card/artwork separation.
 
 ## Complexity review
 

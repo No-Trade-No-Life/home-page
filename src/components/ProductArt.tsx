@@ -199,6 +199,26 @@ export function ProductArt({ id }: { id: ProductId }) {
           <span className="art-label">VOICE → TEXT → SUMMARY</span>
         </div>
       )}
+      {id === "autolabs" && (
+        <div className="autolabs-sculpture">
+          <div className="lab-card lab-a">
+            <span>lab-0054</span>
+            <b />
+            <b />
+          </div>
+          <div className="lab-card lab-b">
+            <span>lab-0082</span>
+            <b />
+          </div>
+          <div className="lab-card lab-c">
+            <span>lab-0103</span>
+            <b />
+            <em>✓</em>
+          </div>
+          <span className="sota-badge">SOTA</span>
+          <span className="art-label">RUN → GATE → SOTA</span>
+        </div>
+      )}
     </div>
   );
 }

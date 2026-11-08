@@ -638,6 +638,9 @@
 .card-meeting {
   order: 6;
 }
+.card-autolabs {
+  order: 7;
+}
 
 .philosophy-top {
   display: flex;
