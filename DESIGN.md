@@ -12,7 +12,7 @@ Firma's homepage mark is a **round hemispherical dome**, not a letter monogram. 
 
 ## Product model: overlapping views
 
-The twelve products are Linkit, Cybion, NormAI, eXe, Firma (Firmament), Midas, 1Exchange, HIT, Docs, Tickets, Meeting, and AutoLabs (AI for Science automated experiments, integrated with Cybion). Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
+The twelve products are Linkit, Cybion, NormAI, eXe, Firma (Firmament), Midas, 1Exchange, HIT, Docs, Tickets, Meeting, and AutoLabs (a hosted research map for automated experiments, integrated with Cybion). Product cards introduce independent capabilities. Filters show **example participation**, not exclusive product categories:
 
 - **Intelligent collaboration / 智能协作:** Linkit, Cybion, NormAI, eXe, Midas, Docs, Tickets, Meeting, AutoLabs.
 - **Fund investing / 基金投资:** Midas, Firma, Cybion, HIT, 1Exchange, Linkit.
