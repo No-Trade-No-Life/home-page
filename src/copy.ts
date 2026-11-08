@@ -10,7 +10,7 @@ export const zh = {
   "nav.skip": "跳到主要内容",
   "hero.eyebrow": "为智能而构建 · 为价值而连接",
   "hero.description":
-    "让智能成为行动，让连接创造价值。\n十一个独立产品，组合不止一种。",
+    "让智能成为行动，让连接创造价值。\n十二个独立产品，组合不止一种。",
   "hero.cta": "探索产品宇宙",
   "hero.secondary": "了解我们的理念",
   "hero.coordinate": "数据 × 智能 × 协作 × 价值",
@@ -97,6 +97,15 @@ export const zh = {
   "meeting.f1": "多人音视频，媒体由 Cloudflare Realtime 承载",
   "meeting.f2": "按人声切片转写，静音不计费",
   "meeting.f3": "转写与 AI 摘要解耦",
+  "autolabs.role": "AI for Science 自动实验",
+  "autolabs.title": "实验，自己向前跑。",
+  "autolabs.description":
+    "面向 AI for Science 的自动实验框架，与 Cybion 集成：实验文件与门禁托管，计算跑在你自己的机器上。",
+  "autolabs.detail":
+    "AutoLabs 是面向 AI for Science 的自动实验框架，并与 Cybion 集成。一个项目就是一族 <Domain>-Labs，拥有独立的实验编号与授权；实验文件内容寻址保存，快照不可变，Gate 与指标契约把判定写进数据库不变量，SOTA 的每次晋升、降级与排除都有账。每轮 Run 绑定一个 Cybion Thread，在你自己的机器上执行并把结果写回。",
+  "autolabs.f1": "自动推进的实验生命周期",
+  "autolabs.f2": "不可变快照、Gate 与指标契约",
+  "autolabs.f3": "每轮实验绑定 Cybion Thread",
   "midas.role": "支付与结算",
   "midas.title": "让价值，自由流动。",
   "midas.description":
@@ -167,14 +176,14 @@ export const zh = {
   "connection.title": "场景，是起点。",
   "connection.title2": "组合，没有定式。",
   "connection.description":
-    "十一个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
+    "十二个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
   "connection.open": "开放组合",
   "connection.ai": "智能协作",
   "connection.fund": "基金投资",
   "connection.open.title": "独立的能力，开放的连接。",
   "connection.open.description":
     "从你要完成的事情出发，选择数据、上下文、智能、执行、沟通和结算能力。产品没有唯一的搭配方式，也不被某个场景限定。",
-  "connection.open.caption": "十一个独立产品 · 按目标自由组合",
+  "connection.open.caption": "十二个独立产品 · 按目标自由组合",
   "connection.ai.title": "先找到人，再让分身协作。",
   "connection.ai.description":
     "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 用 eXe 在真实设备上执行，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
@@ -241,7 +250,7 @@ export const en: Record<CopyKey, string> = {
   "nav.skip": "Skip to content",
   "hero.eyebrow": "BUILT FOR INTELLIGENCE. CONNECTED BY VALUE.",
   "hero.description":
-    "Turn intelligence into action. Turn connection into value.\nEleven independent products. More than one way to connect.",
+    "Turn intelligence into action. Turn connection into value.\nTwelve independent products. More than one way to connect.",
   "hero.cta": "Explore the ecosystem",
   "hero.secondary": "Our philosophy",
   "hero.coordinate": "DATA × INTELLIGENCE × CONNECTION × VALUE",
@@ -329,6 +338,15 @@ export const en: Record<CopyKey, string> = {
   "meeting.f1": "Multi-party video over Cloudflare Realtime",
   "meeting.f2": "Voice-segment transcription; silence is never billed",
   "meeting.f3": "Transcription and AI summaries stay decoupled",
+  "autolabs.role": "AI FOR SCIENCE",
+  "autolabs.title": "Experiments that run themselves.",
+  "autolabs.description":
+    "An automated experiment framework for AI for Science, integrated with Cybion: hosted experiment files and gates, with compute on your own machines.",
+  "autolabs.detail":
+    "AutoLabs is an automated experiment framework for AI for Science, built to work with Cybion. Each project is a family of <Domain>-Labs with its own lab sequence and authorization. Experiment files are content-addressed, snapshots are immutable, and gates plus metric contracts turn acceptance into database invariants; every SOTA promotion, demotion, and exclusion keeps a ledger entry. Each run binds a Cybion Thread that executes on your own machines and writes the result back.",
+  "autolabs.f1": "An automated experiment lifecycle",
+  "autolabs.f2": "Immutable snapshots, gates, and metric contracts",
+  "autolabs.f3": "Every run binds a Cybion Thread",
   "midas.role": "PAYMENTS & SETTLEMENT",
   "midas.title": "Value, in motion.",
   "midas.description":
@@ -404,7 +422,7 @@ export const en: Record<CopyKey, string> = {
   "connection.title": "A scenario is a starting point.",
   "connection.title2": "Not a fixed formula.",
   "connection.description":
-    "Eleven products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
+    "Twelve products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
   "connection.open": "Open combinations",
   "connection.ai": "Intelligent collaboration",
   "connection.fund": "Fund investing",
@@ -412,7 +430,7 @@ export const en: Record<CopyKey, string> = {
   "connection.open.description":
     "Start with your goal. Choose the data, context, intelligence, execution, communication, and settlement capabilities it needs. No product belongs to only one scenario or one arrangement.",
   "connection.open.caption":
-    "ELEVEN INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
+    "TWELVE INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
   "connection.ai.title": "Find the people. Let their agents collaborate.",
   "connection.ai.description":
     "Find people through Linkit and collaborate through their Cybion agents. Cybion executes on real devices through eXe and draws model access from NormAI. NormAI settles payments through Midas.",

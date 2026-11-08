@@ -12,12 +12,13 @@ const products = [
   "Docs",
   "Tickets",
   "Meeting",
+  "AutoLabs",
 ];
 // The hero ring, the product strip and the open network show the eight
-// featured products; Docs, Tickets, and Meeting are ordinary entries with
+// featured products; Docs, Tickets, Meeting, and AutoLabs are ordinary entries with
 // their own cards and dialogs.
 const featured = products.filter(
-  (name) => !["Docs", "Tickets", "Meeting"].includes(name),
+  (name) => !["Docs", "Tickets", "Meeting", "AutoLabs"].includes(name),
 );
 // The runtime each product is served from today. eXe, Docs, and Meeting run on
 // Cloudflare Workers; everything else is a Rust server process.
@@ -33,6 +34,7 @@ const architectures: Record<string, string> = {
   Docs: "CF Workers · Serverless",
   Tickets: "Rust Server",
   Meeting: "CF Workers · Serverless",
+  AutoLabs: "CF Workers · Serverless",
 };
 async function resizeForLayout(page: Page, width: number, height = 1000) {
   await page.setViewportSize({ width, height });
@@ -57,7 +59,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
 });
-test("eleven products, same-origin app assets, no browser errors", async ({
+test("twelve products, same-origin app assets, no browser errors", async ({
   page,
   baseURL,
 }) => {
@@ -72,7 +74,7 @@ test("eleven products, same-origin app assets, no browser errors", async ({
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "NO TRADE.NO LIFE.",
   );
-  await expect(page.locator(".product-card")).toHaveCount(11);
+  await expect(page.locator(".product-card")).toHaveCount(12);
   for (const name of products)
     await expect(
       page
@@ -109,8 +111,9 @@ test("scenario filters overlap and retain the shared products", async ({
         "Docs",
         "Tickets",
         "Meeting",
+        "AutoLabs",
       ],
-      count: "08",
+      count: "09",
     },
     {
       name: /基金投资/,
@@ -118,7 +121,7 @@ test("scenario filters overlap and retain the shared products", async ({
       count: "06",
     },
     { name: /跨场景能力/, products: ["Linkit", "Midas"], count: "02" },
-    { name: /全部产品/, products, count: "11" },
+    { name: /全部产品/, products, count: "12" },
   ];
   for (const item of cases) {
     const filter = page
@@ -150,7 +153,7 @@ test("Firma and HIT share one row in the two-column grid", async ({
     expect(firma!.x + firma!.width).toBeLessThanOrEqual(hit!.x + 1);
   }
 });
-test("all eleven detail dialogs, correct external links, Escape, and focus return", async ({
+test("all twelve detail dialogs, correct external links, Escape, and focus return", async ({
   page,
 }) => {
   for (const name of products) {
@@ -173,7 +176,7 @@ test("all eleven detail dialogs, correct external links, Escape, and focus retur
     const link = dialog.getByRole("link", { name: `打开产品 ${name}` });
     await expect(link).toHaveAttribute(
       "href",
-      /^https:\/\/(linkit|cybion|normai|exe|firma|midas|1ex|hit|docs|tickets|meeting)\.ntnl\.io$/,
+      /^https:\/\/(linkit|cybion|normai|exe|firma|midas|1ex|hit|docs|tickets|meeting|autolabs)\.ntnl\.io$/,
     );
     await expect(link).toHaveAttribute("rel", "noopener noreferrer");
     if (name === "HIT")
@@ -704,5 +707,5 @@ test("English scenario copy retains the same roles and shared capabilities", asy
     .locator(".filters")
     .getByRole("button", { name: /Intelligent collaboration/ })
     .click();
-  await expect(page.locator(".product-card")).toHaveCount(8);
+  await expect(page.locator(".product-card")).toHaveCount(9);
 });

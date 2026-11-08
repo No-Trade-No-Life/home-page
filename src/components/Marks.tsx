@@ -37,6 +37,12 @@ const paths: Record<ProductId, React.ReactNode> = {
       <path d="m21 14 7-4v12l-7-4" />
     </>
   ),
+  autolabs: (
+    <>
+      <path d="M12 4h8M16 4v9L7 27a1.5 1.5 0 0 0 1.3 2.2h15.4A1.5 1.5 0 0 0 25 27L16 13V4" />
+      <path d="M11.5 21h9" />
+    </>
+  ),
 };
 export function ProductMark({
   id,
