@@ -25,6 +25,18 @@ const paths: Record<ProductId, React.ReactNode> = {
       <path d="m13 10 6 6-6 6" />
     </>
   ),
+  tickets: (
+    <>
+      <path d="M4 11h24v3.5a2.5 2.5 0 0 1 0 5V23H4v-3.5a2.5 2.5 0 0 1 0-5Z" />
+      <path d="M20 12v2M20 16v2M20 20v1" />
+    </>
+  ),
+  meeting: (
+    <>
+      <rect x="4" y="9" width="17" height="14" rx="3" />
+      <path d="m21 14 7-4v12l-7-4" />
+    </>
+  ),
 };
 export function ProductMark({
   id,

@@ -10,7 +10,7 @@ export const zh = {
   "nav.skip": "跳到主要内容",
   "hero.eyebrow": "为智能而构建 · 为价值而连接",
   "hero.description":
-    "让智能成为行动，让连接创造价值。\n九个独立产品，组合不止一种。",
+    "让智能成为行动，让连接创造价值。\n十一个独立产品，组合不止一种。",
   "hero.cta": "探索产品宇宙",
   "hero.secondary": "了解我们的理念",
   "hero.coordinate": "数据 × 智能 × 协作 × 价值",
@@ -75,10 +75,28 @@ export const zh = {
   "docs.description":
     "记录思考，组织知识，保留独有的判断。让你的文档与上下文，成为智能的起点。",
   "docs.detail":
-    "Docs 是个人文档与上下文的容器。以云文档、版本历史与 Markdown 发布为起点，组织真正属于你的经验、知识和长期思考，为智能协作提供有深度的背景。",
+    "Docs 是个人文档与上下文的容器。以云文档、版本历史与 Markdown 发布为起点，组织真正属于你的经验、知识和长期思考，为智能协作提供有深度的背景。现在整站运行在 Cloudflare Workers 上，文档与版本存于 D1，媒体存于 R2。",
   "docs.f1": "云文档与内容发布",
   "docs.f2": "个人知识与上下文组织",
   "docs.f3": "面向 Agent 的上下文连接",
+  "tickets.role": "面向 Agent 的工单",
+  "tickets.title": "报障与修复，各有 Agent。",
+  "tickets.description":
+    "报障人只需说清哪里不对。自己的 Agent 补齐现场，项目所有者的 Agent 消化队列。",
+  "tickets.detail":
+    "Tickets 是为 AI Agent 设计的工单系统。报障侧的 Cybion Thread 用报障人自己的账号只读排查，写回现场证据；修复侧由项目所有者的终极机器轮询队列，按需唤醒修复 Thread。Reporter 与 Resolver 两种 Agent 令牌分别绑定单张工单与单个项目，人只看结论。",
+  "tickets.f1": "报障 Agent 自动补齐现场证据",
+  "tickets.f2": "终极机器按队列唤醒修复 Agent",
+  "tickets.f3": "Reporter / Resolver 双令牌隔离",
+  "meeting.role": "会议与转写",
+  "meeting.title": "会开完，纪要已经在。",
+  "meeting.description":
+    "多人音视频、逐段转写与 AI 摘要。媒体走 Cloudflare Realtime，文字走 NormAI。",
+  "meeting.detail":
+    "Meeting 是一个基于 Cloudflare Realtime 的最小视频会议：WebRTC 媒体由 RealtimeKit 的 SFU 与 TURN 承载，Worker 只负责签发加入令牌。浏览器按人声切片上传到 R2，D1 保存索引，NormAI 逐段转写并按需生成摘要；静音不产生上传与调用。",
+  "meeting.f1": "多人音视频，媒体由 Cloudflare Realtime 承载",
+  "meeting.f2": "按人声切片转写，静音不计费",
+  "meeting.f3": "转写与 AI 摘要解耦",
   "midas.role": "支付与结算",
   "midas.title": "让价值，自由流动。",
   "midas.description":
@@ -149,14 +167,14 @@ export const zh = {
   "connection.title": "场景，是起点。",
   "connection.title2": "组合，没有定式。",
   "connection.description":
-    "九个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
+    "十一个产品，不是一条固定链路。\n智能协作与基金投资，是其中两种组合方式。",
   "connection.open": "开放组合",
   "connection.ai": "智能协作",
   "connection.fund": "基金投资",
   "connection.open.title": "独立的能力，开放的连接。",
   "connection.open.description":
     "从你要完成的事情出发，选择数据、上下文、智能、执行、沟通和结算能力。产品没有唯一的搭配方式，也不被某个场景限定。",
-  "connection.open.caption": "九个独立产品 · 按目标自由组合",
+  "connection.open.caption": "十一个独立产品 · 按目标自由组合",
   "connection.ai.title": "先找到人，再让分身协作。",
   "connection.ai.description":
     "在 Linkit 找到合适的人，由各自的 Cybion 分身展开协作。Cybion 用 eXe 在真实设备上执行，通过 NormAI 获得智能供应；NormAI 再通过 Midas 完成支付结算。",
@@ -223,7 +241,7 @@ export const en: Record<CopyKey, string> = {
   "nav.skip": "Skip to content",
   "hero.eyebrow": "BUILT FOR INTELLIGENCE. CONNECTED BY VALUE.",
   "hero.description":
-    "Turn intelligence into action. Turn connection into value.\nNine independent products. More than one way to connect.",
+    "Turn intelligence into action. Turn connection into value.\nEleven independent products. More than one way to connect.",
   "hero.cta": "Explore the ecosystem",
   "hero.secondary": "Our philosophy",
   "hero.coordinate": "DATA × INTELLIGENCE × CONNECTION × VALUE",
@@ -289,10 +307,28 @@ export const en: Record<CopyKey, string> = {
   "docs.description":
     "Capture your thinking, organize knowledge, and preserve your judgment. Make your documents and context the starting point.",
   "docs.detail":
-    "Docs is a container for personal documents and context. Starting with cloud documents, content publishing, and version history, it organizes your experience, knowledge, and long-term thinking as a foundation for intelligent collaboration.",
+    "Docs is a container for personal documents and context. Starting with cloud documents, content publishing, and version history, it organizes your experience, knowledge, and long-term thinking as a foundation for intelligent collaboration. It now runs entirely on Cloudflare Workers, with documents and revisions in D1 and media in R2.",
   "docs.f1": "Cloud documents and publishing",
   "docs.f2": "Personal knowledge and context",
   "docs.f3": "Context connections for agents",
+  "tickets.role": "AGENT-NATIVE TICKETS",
+  "tickets.title": "One ticket. Two agents.",
+  "tickets.description":
+    "Say what looks wrong. Your agent gathers the evidence; the owner's agent works the queue.",
+  "tickets.detail":
+    "Tickets is a ticket system built for AI agents. On the reporting side, a Cybion Thread runs read-only on the reporter's own account and writes back evidence. On the fixing side, the project owner's Ultimate Machine polls the queue and wakes a resolver Thread when work arrives. Separate Reporter and Resolver agent tokens bind each side to one ticket or one project, so people only read the conclusion.",
+  "tickets.f1": "Reporter agent gathers on-site evidence",
+  "tickets.f2": "Ultimate Machine wakes the resolver agent",
+  "tickets.f3": "Separate Reporter and Resolver tokens",
+  "meeting.role": "MEETINGS & TRANSCRIPTS",
+  "meeting.title": "The meeting ends. The notes are ready.",
+  "meeting.description":
+    "Multi-party video, segment-by-segment transcription, and AI summaries. Media on Cloudflare Realtime, text through NormAI.",
+  "meeting.detail":
+    "Meeting is a minimal video meeting built on Cloudflare Realtime: WebRTC media rides RealtimeKit's SFU and TURN, while the Worker only signs join tokens. The browser uploads voice segments to R2, D1 keeps the index, and NormAI transcribes each segment and summarizes on demand. Silence produces no upload and no model call.",
+  "meeting.f1": "Multi-party video over Cloudflare Realtime",
+  "meeting.f2": "Voice-segment transcription; silence is never billed",
+  "meeting.f3": "Transcription and AI summaries stay decoupled",
   "midas.role": "PAYMENTS & SETTLEMENT",
   "midas.title": "Value, in motion.",
   "midas.description":
@@ -368,7 +404,7 @@ export const en: Record<CopyKey, string> = {
   "connection.title": "A scenario is a starting point.",
   "connection.title2": "Not a fixed formula.",
   "connection.description":
-    "Nine products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
+    "Eleven products, not one fixed pipeline.\nIntelligent collaboration and fund investing are two possible combinations.",
   "connection.open": "Open combinations",
   "connection.ai": "Intelligent collaboration",
   "connection.fund": "Fund investing",
@@ -376,7 +412,7 @@ export const en: Record<CopyKey, string> = {
   "connection.open.description":
     "Start with your goal. Choose the data, context, intelligence, execution, communication, and settlement capabilities it needs. No product belongs to only one scenario or one arrangement.",
   "connection.open.caption":
-    "NINE INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
+    "ELEVEN INDEPENDENT PRODUCTS · COMBINE FOR YOUR GOAL",
   "connection.ai.title": "Find the people. Let their agents collaborate.",
   "connection.ai.description":
     "Find people through Linkit and collaborate through their Cybion agents. Cybion executes on real devices through eXe and draws model access from NormAI. NormAI settles payments through Midas.",

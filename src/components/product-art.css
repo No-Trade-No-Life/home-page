@@ -434,3 +434,142 @@
 .firma-art-caption {
   color: #a8c3d5;
 }
+
+.tickets-sculpture {
+  position: relative;
+  width: 300px;
+  height: 170px;
+  margin: auto;
+  top: 6px;
+}
+.ticket-card {
+  display: flex;
+  align-items: stretch;
+  height: 112px;
+  overflow: hidden;
+  border: 1px solid #f7c87345;
+  border-radius: 8px;
+  background: linear-gradient(120deg, #241f12, #141310);
+  box-shadow: 0 14px 30px #0004;
+}
+.ticket-half {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+}
+.ticket-half b {
+  display: block;
+  width: 82%;
+  height: 2px;
+  background: #f7c8732e;
+}
+.ticket-half b:nth-of-type(2) {
+  width: 63%;
+}
+.ticket-half b.short {
+  width: 38%;
+}
+.ticket-mono {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  letter-spacing: 0.06em;
+  color: #f7c873;
+}
+.ticket-perf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 18px;
+  border-inline: 1px dashed #f7c87338;
+}
+.ticket-perf i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f7c87355;
+}
+.ticket-check {
+  font-size: 16px;
+  line-height: 1;
+  color: #f7c873;
+}
+.tickets-sculpture .art-label {
+  left: 0;
+  bottom: 0;
+}
+
+.meeting-sculpture {
+  position: relative;
+  width: 270px;
+  height: 176px;
+  margin: auto;
+  top: 10px;
+}
+.meeting-tile {
+  position: absolute;
+  border: 1px solid #9ad7f545;
+  border-radius: 8px;
+  background: linear-gradient(140deg, #132129, #0e1518);
+  box-shadow: 0 14px 28px #0004;
+}
+.meeting-tile.main {
+  top: 4px;
+  left: 10px;
+  width: 168px;
+  height: 102px;
+  padding: 12px;
+}
+.meeting-tile.side {
+  top: 18px;
+  right: 0;
+  width: 96px;
+  height: 76px;
+  padding: 10px;
+  opacity: 0.85;
+}
+.meeting-name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: var(--text-caption);
+  color: #9ad7f5;
+}
+.meeting-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9ad7f5;
+  box-shadow: 0 0 12px #9ad7f5;
+}
+.meeting-tile i {
+  display: block;
+  width: 72%;
+  height: 2px;
+  margin-top: 10px;
+  background: #9ad7f522;
+}
+.meeting-tile i + i {
+  width: 48%;
+}
+.meeting-wave {
+  position: absolute;
+  left: 12px;
+  bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 40px;
+}
+.meeting-wave i {
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to top, #9ad7f52c, #9ad7f5a8);
+}
+.meeting-sculpture .art-label {
+  right: 0;
+  bottom: 0;
+}

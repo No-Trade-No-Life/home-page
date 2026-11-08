@@ -628,9 +628,15 @@
 .card-exchange {
   order: 3;
 }
-/* Docs is the ninth, ordinary entry: it follows the eight featured products. */
+/* Docs, Tickets, and Meeting are ordinary entries after the featured products. */
 .card-docs {
   order: 4;
+}
+.card-tickets {
+  order: 5;
+}
+.card-meeting {
+  order: 6;
 }
 
 .philosophy-top {
